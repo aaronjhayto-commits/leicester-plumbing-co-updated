@@ -249,3 +249,30 @@ a:hover{opacity:.9}
   filter:none !important;
   opacity:1 !important;
 }
+/* --- Trust Logo Balancing --- */
+.logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  padding: 2rem 0;
+  background: rgba(11,18,32,.9);
+}
+
+.logos img {
+  height: auto;
+  max-height: 45px;         /* consistent height */
+  width: auto;
+  object-fit: contain;
+  background: none;
+  border-radius: 6px;
+  box-shadow: none;
+  padding: 0;
+  transition: transform .2s ease;
+}
+
+.logos img:hover {
+  transform: scale(1.05);
+}
+
