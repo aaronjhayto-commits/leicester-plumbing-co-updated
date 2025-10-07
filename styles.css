@@ -128,4 +128,19 @@ a:hover{opacity:.9}
   display:block;
 }
 
+/* Trust logos should be full colour and crisp */
+.logos img{
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal;
+  height: 36px;        /* adjust if you want them bigger */
+  width: auto;
+}
+
+/* Header icon too */
+.brand img{
+  filter: none !important;
+  opacity: 1 !important;
+}
+
 
