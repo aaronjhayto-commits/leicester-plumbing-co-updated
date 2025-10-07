@@ -59,9 +59,26 @@
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
-      <img src="assets/hero.jpg" alt="Engineer repairing a boiler" loading="eager" />
-      <div class="hero-inner container">
+  /* HERO */
+.hero{
+  position: relative;
+  isolation: isolate;
+}
+.hero img{
+  position: absolute;      /* sit behind the text */
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: .65;            /* make it clearly visible */
+  filter: none;            /* remove grayscale/dimming */
+  display: block;
+}
+.hero-inner{               /* spacing for the text over the image */
+  padding: 6rem 0 4rem;
+}
+
         <h1>Plumbing problems solved <span class="accent">fast</span>.</h1>
         <p>Emergency callouts 24/7, boiler installs and servicing, leaks, and bathrooms. Trusted local engineers. Fixed fair pricing.</p>
         <div class="cta">
@@ -194,3 +211,4 @@
   <script src="script.js" defer></script>
 </body>
 </html>
+
