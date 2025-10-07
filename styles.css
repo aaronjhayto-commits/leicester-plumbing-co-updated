@@ -275,4 +275,9 @@ a:hover{opacity:.9}
 .logos img:hover {
   transform: scale(1.05);
 }
+/* Make Trustpilot logo text white */
+.logos img[alt="Trustpilot"] {
+  filter: brightness(0) invert(1);
+}
+
 
