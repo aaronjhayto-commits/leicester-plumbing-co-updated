@@ -7,12 +7,22 @@
   <meta name="description" content="Market-leading plumbers in Leicester. 24/7 emergencies, boiler installs and servicing, leaks fixed fast, bathrooms, and heating. Fixed fair pricing." />
   <meta name="theme-color" content="#0ea5e9">
 
-  <!-- use your actual favicon file (you have favicon.svg) -->
+  <!-- Favicon -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-  <link rel="stylesheet" href="styles.css" />
+  <!-- Styles (cache-busted) -->
+  <link rel="stylesheet" href="styles.css?v=6" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Force full-colour logos regardless of older CSS -->
+  <style>
+    .logos img{
+      filter:none !important;
+      opacity:1 !important;
+      mix-blend-mode:normal !important;
+    }
+  </style>
 
   <!-- JSON-LD for SEO -->
   <script type="application/ld+json">
@@ -63,7 +73,7 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero">
-      <img src="assets/hero.jpg?v=2" alt="Engineer repairing a boiler" loading="eager" />
+      <img src="assets/hero.jpg?v=6" alt="Engineer repairing a boiler" loading="eager" />
       <div class="hero-inner container">
         <h1>Plumbing problems solved <span class="accent">fast</span>.</h1>
         <p>Emergency callouts 24/7, boiler installs and servicing, leaks, and bathrooms. Trusted local engineers. Fixed fair pricing.</p>
@@ -79,12 +89,12 @@
       </div>
     </section>
 
-    <!-- TRUST LOGOS (match your actual file extensions) -->
+    <!-- TRUST LOGOS -->
     <section class="logos container" aria-label="Trusted by">
-      <img src="assets/gassafe.png?v=2" alt="Gas Safe" />
-      <img src="assets/checkatrade.png?v=2" alt="Checkatrade" />
-      <img src="assets/trustpilot.svg?v=2" alt="Trustpilot" />
-      <img src="assets/which.svg?v=2" alt="Which?" />
+      <img src="assets/gassafe.png?v=6" alt="Gas Safe" />
+      <img src="assets/checkatrade.png?v=6" alt="Checkatrade" />
+      <img src="assets/trustpilot.svg?v=6" alt="Trustpilot" />
+      <img src="assets/which.svg?v=6" alt="Which?" />
     </section>
 
     <!-- SERVICES -->
