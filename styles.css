@@ -279,5 +279,24 @@ a:hover{opacity:.9}
 .logos img[alt="Trustpilot"] {
   filter: brightness(0) invert(1);
 }
+/* ✅ Make Trustpilot logo white */
+.logos img[alt="Trustpilot"] {
+  filter: brightness(0) invert(1) contrast(1.1);
+  opacity: 0.9;
+}
+
+/* ✅ Make Checkatrade logo a bit smaller + centered */
+.logos img[alt="Checkatrade"] {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  margin-top: 4px;
+}
+
+/* Optional: align all logos more evenly */
+.logos {
+  gap: 2rem;
+}
+
 
 
