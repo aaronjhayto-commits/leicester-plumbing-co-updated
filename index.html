@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <!-- Styles (cache-busted) -->
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -73,7 +73,7 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero">
-      <img src="assets/hero.jpg?v=6" alt="Engineer repairing a boiler" loading="eager" />
+      <img src="assets/hero.jpg?v=7" alt="Engineer repairing a boiler" loading="eager" />
       <div class="hero-inner container">
         <h1>Plumbing problems solved <span class="accent">fast</span>.</h1>
         <p>Emergency callouts 24/7, boiler installs and servicing, leaks, and bathrooms. Trusted local engineers. Fixed fair pricing.</p>
@@ -91,10 +91,10 @@
 
     <!-- TRUST LOGOS -->
     <section class="logos container" aria-label="Trusted by">
-      <img src="assets/gassafe.png?v=6" alt="Gas Safe" />
-      <img src="assets/checkatrade.png?v=6" alt="Checkatrade" />
-      <img src="assets/trustpilot.svg?v=6" alt="Trustpilot" />
-      <img src="assets/which.svg?v=6" alt="Which?" />
+      <img src="assets/gassafe.png?v=7" alt="Gas Safe" />
+      <img src="assets/checkatrade.png?v=7" alt="Checkatrade" />
+      <img src="assets/trustpilot.svg?v=7" alt="Trustpilot" />
+      <img src="assets/which.svg?v=7" alt="Which?" />
     </section>
 
     <!-- SERVICES -->
@@ -204,34 +204,16 @@
     </div>
   </footer>
 
-  <!-- Your site JS -->
+  <!-- Scripts -->
   <script src="script.js" defer></script>
 
-  <!-- Chatbase Chatbot (your loader snippet, as-is) -->
+  <!-- Chatbase Chatbot -->
   <script>
-  (function(){
-    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
-      window.chatbase = (...arguments) => {
-        if(!window.chatbase.q){ window.chatbase.q = [] }
-        window.chatbase.q.push(arguments)
-      };
-      window.chatbase = new Proxy(window.chatbase, {
-        get(target, prop){
-          if(prop === "q"){ return target.q }
-          return (...args) => target(prop, ...args)
-        }
-      })
-    }
-    const onLoad = function(){
-      const script = document.createElement("script");
-      script.src = "https://www.chatbase.co/embed.min.js";
-      script.id = "rL8EPf39llgdwMS-JB0j_";       /* <-- keep YOUR id */
-      script.domain = "www.chatbase.co";
-      document.body.appendChild(script)
+    window.chatbaseConfig = {
+      chatbotId: "rL8EPf39llgdwMS-JB0j_",
+      domain: "www.chatbase.co"
     };
-    if(document.readyState === "complete"){ onLoad() }
-    else { window.addEventListener("load", onLoad) }
-  })();
   </script>
+  <script id="chatbase-script" defer src="https://www.chatbase.co/embed.min.js"></script>
 </body>
 </html>
