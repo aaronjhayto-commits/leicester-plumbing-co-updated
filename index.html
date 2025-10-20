@@ -66,7 +66,10 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero">
-      <img src="assets/hero.jpg?v=8" alt="Engineer repairing a boiler" loading="eager" />
+      <img src="assets/hero.jpg?v=8"
+     alt="Engineer repairing a boiler"
+     width="1600" height="900"
+     fetchpriority="high" decoding="async">
       <div class="hero-inner container">
         <h1>Plumbing problems solved <span class="accent">fast</span>.</h1>
         <p>Emergency callouts 24/7, boiler installs and servicing, leaks, and bathrooms. Trusted local engineers. Fixed fair pricing.</p>
@@ -83,12 +86,12 @@
     </section>
 
     <!-- TRUST LOGOS -->
-    <section class="logos container" aria-label="Trusted by">
-      <img src="assets/gassafe.png?v=8" alt="Gas Safe" />
-      <img src="assets/checkatrade.png?v=8" alt="Checkatrade" />
-      <img src="assets/trustpilot.svg?v=8" alt="Trustpilot" />
-      <img src="assets/which.svg?v=8" alt="Which?" />
-    </section>
+  <section class="logos container" aria-label="Trusted by">
+  <img src="assets/gassafe.png?v=8" alt="Gas Safe" loading="lazy" decoding="async" width="120" height="60">
+  <img src="assets/checkatrade.png?v=8" alt="Checkatrade" loading="lazy" decoding="async" width="220" height="60">
+  <img src="assets/trustpilot.svg?v=8" alt="Trustpilot" loading="lazy" decoding="async" width="200" height="60">
+  <img src="assets/which.svg?v=8" alt="Which?" loading="lazy" decoding="async" width="160" height="60">
+</section>
 
     <!-- SERVICES -->
     <section class="cards container">
@@ -204,4 +207,5 @@
   </script>
 </body>
 </html>
+
 
