@@ -17,35 +17,43 @@
 
   <!-- Force full-colour logos regardless of older CSS -->
   <style>
-    .logos img{
-      filter:none !important;
-      opacity:1 !important;
-      mix-blend-mode:normal !important;
-    }
+    .logos img{ filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
   </style>
 
-<head>
-  ...
   <!-- JSON-LD for SEO -->
   <script type="application/ld+json">
-  { ... }
-  </script>
-</head>
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Leicester Plumbing Co",
-    "image": "https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/assets/og-cover.jpg",
-    "telephone": "+44 116 222 2222",
-    "email": "bookings@leicesterplumbing.example",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Leicester",
-      "addressRegion": "Leicestershire",
-      "postalCode": "LE1"
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Leicester Plumbing Co",
+    "url":"https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/",
+    "image":"https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/assets/og-cover.jpg",
+    "telephone":"+44 116 222 2222",
+    "email":"bookings@leicesterplumbing.example",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Leicester",
+      "addressRegion":"Leicestershire",
+      "postalCode":"LE1",
+      "addressCountry":"GB"
     },
-    "url": "https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/",
-    "openingHours": "Mo-Su 00:00-23:59",
-    "sameAs": ["https://facebook.com/", "https://instagram.com/"]
+    "areaServed":"Leicester & Leicestershire",
+    "openingHoursSpecification":[
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"00:00","closes":"23:59"},
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"00:00","closes":"23:59"}
+    ],
+    "priceRange":"££",
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"218"},
+    "potentialAction":{
+      "@type":"ReserveAction",
+      "target":{
+        "@type":"EntryPoint",
+        "urlTemplate":"https://calendly.com/aaronjhayto/book-a-plumber-visit",
+        "inLanguage":"en-GB",
+        "actionPlatform":["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"]
+      },
+      "result":{"@type":"Reservation","name":"Plumber visit booking"}
+    }
   }
   </script>
 </head>
@@ -150,28 +158,27 @@
       </div>
     </section>
 
+    <!-- FAQ -->
     <section id="faq" style="padding:3rem 1rem; max-width:900px; margin:0 auto; color:#fff;">
-  <h2 style="font-size:1.8rem; margin:0 0 1rem;">FAQs</h2>
-  <details style="background:#111; border-radius:10px; padding:0.8rem 1rem; margin-bottom:0.8rem;">
-    <summary style="cursor:pointer; font-weight:600;">Do you charge a callout fee?</summary>
-    <p style="margin-top:0.6rem;">We quote up-front. No hidden surprises.</p>
-  </details>
-  <details style="background:#111; border-radius:10px; padding:0.8rem 1rem; margin-bottom:0.8rem;">
-    <summary style="cursor:pointer; font-weight:600;">How soon can you attend?</summary>
-    <p style="margin-top:0.6rem;">Same-day in Leicester. 24/7 emergencies.</p>
-  </details>
-  <details style="background:#111; border-radius:10px; padding:0.8rem 1rem; margin-bottom:0.8rem;">
-    <summary style="cursor:pointer; font-weight:600;">Are you Gas Safe?</summary>
-    <p style="margin-top:0.6rem;">Yes — all boiler work by registered engineers.</p>
-  </details>
-  <details style="background:#111; border-radius:10px; padding:0.8rem 1rem;">
-    <summary style="cursor:pointer; font-weight:600;">Which areas do you cover?</summary>
-    <p style="margin-top:0.6rem;">Leicester & Leicestershire.</p>
-  </details>
-</section>
+      <h2 style="font-size:1.8rem; margin:0 0 1rem;">FAQs</h2>
+      <details style="background:#111; border-radius:10px; padding:0.8rem 1rem; margin-bottom:0.8rem;">
+        <summary style="cursor:pointer; font-weight:600;">Do you charge a callout fee?</summary>
+        <p style="margin-top:0.6rem;">We quote up-front. No hidden surprises.</p>
+      </details>
+      <details style="background:#111; border-radius:10px; padding:0.8rem 1rem; margin-bottom:0.8rem;">
+        <summary style="cursor:pointer; font-weight:600;">How soon can you attend?</summary>
+        <p style="margin-top:0.6rem;">Same-day in Leicester. 24/7 emergencies.</p>
+      </details>
+      <details style="background:#111; border-radius:10px; padding:0.8rem 1rem; margin-bottom:0.8rem;">
+        <summary style="cursor:pointer; font-weight:600;">Are you Gas Safe?</summary>
+        <p style="margin-top:0.6rem;">Yes — all boiler work by registered engineers.</p>
+      </details>
+      <details style="background:#111; border-radius:10px; padding:0.8rem 1rem;">
+        <summary style="cursor:pointer; font-weight:600;">Which areas do you cover?</summary>
+        <p style="margin-top:0.6rem;">Leicester & Leicestershire.</p>
+      </details>
+    </section>
 
-    
-    
     <!-- QUOTE FORM -->
     <section id="quote" class="quote">
       <div class="container grid-2">
@@ -184,63 +191,67 @@
             <li>Same-day availability</li>
           </ul>
         </div>
-        <input type="hidden" name="page" value="Home">
-<label>
-  <span>Service</span>
-  <select name="service" required>
-    <option value="">Select a service…</option>
-    <option>Emergency leak</option>
-    <option>Boiler service</option>
-    <option>Boiler install quote</option>
-    <option>Bathroom/upgrade</option>
-    <option>Other</option>
-  </select>
-</label>
 
-<label>
-  <span>Urgency</span>
-  <select name="urgency" required>
-    <option value="">How urgent is it?</option>
-    <option>Right now (emergency)</option>
-    <option>Today</option>
-    <option>This week</option>
-    <option>Flexible</option>
-  </select>
-</label>
+        <form class="card form" action="https://formspree.io/f/xqayjvwo" method="POST">
+          <input type="hidden" name="page" value="Home">
 
-<label>
-  <span>Preferred time</span>
-  <select name="preferred_time" required>
-    <option value="">Pick a slot…</option>
-    <option>8–11am</option>
-    <option>11am–2pm</option>
-    <option>2–5pm</option>
-    <option>After 5pm</option>
-  </select>
-</label>
+          <label>
+            <span>Service</span>
+            <select name="service" required>
+              <option value="">Select a service…</option>
+              <option>Emergency leak</option>
+              <option>Boiler service</option>
+              <option>Boiler install quote</option>
+              <option>Bathroom/upgrade</option>
+              <option>Other</option>
+            </select>
+          </label>
 
-<label>
-  <span>Name</span>
-  <input name="name" autocomplete="name" required>
-</label>
+          <label>
+            <span>Urgency</span>
+            <select name="urgency" required>
+              <option value="">How urgent is it?</option>
+              <option>Right now (emergency)</option>
+              <option>Today</option>
+              <option>This week</option>
+              <option>Flexible</option>
+            </select>
+          </label>
 
-<label>
-  <span>Email</span>
-  <input type="email" name="email" autocomplete="email" required>
-</label>
+          <label>
+            <span>Preferred time</span>
+            <select name="preferred_time" required>
+              <option value="">Pick a slot…</option>
+              <option>8–11am</option>
+              <option>11am–2pm</option>
+              <option>2–5pm</option>
+              <option>After 5pm</option>
+            </select>
+          </label>
 
-<label>
-  <span>Phone</span>
-  <input name="phone" inputmode="tel" pattern="[0-9 +()-]{7,}" required>
-</label>
+          <label>
+            <span>Name</span>
+            <input name="name" autocomplete="name" required>
+          </label>
 
-<label>
-  <span>How can we help? (add a link to photos if you have them)</span>
-  <textarea name="message" rows="5" required></textarea>
-</label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" required>
+          </label>
 
-<button class="btn btn-lg" type="submit">Request quote</button>
-<p class="form-foot">Or call us now: <a href="tel:+441162222222">0116 222 2222</a></p>
+          <label>
+            <span>Phone</span>
+            <input name="phone" inputmode="tel" pattern="[0-9 +()-]{7,}" required>
+          </label>
+
+          <label>
+            <span>How can we help? (add a link to photos if you have them)</span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+
+          <button class="btn btn-lg" type="submit">Request quote</button>
+          <p class="form-foot">Or call us now: <a href="tel:+441162222222">0116 222 2222</a></p>
+        </form>
       </div>
     </section>
   </main>
@@ -273,51 +284,35 @@
   <!-- Chatbase chat bubble (official embed) -->
   <script>
     window.embeddedChatbotConfig = {
-      chatbotId: "rL8EPf39llgdwMS-JB0j_",  /* your bot ID */
+      chatbotId: "rL8EPf39llgdwMS-JB0j_",
       domain: "www.chatbase.co"
     };
   </script>
   <script defer src="https://www.chatbase.co/embed.min.js"></script>
-<!-- Calendly popup "Book Now" button -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-<script>
-(function(){
-  const btn = document.createElement('a');
-  btn.href = '#';
-  btn.textContent = 'Book now';
-  btn.onclick = function(){
-    Calendly.initPopupWidget({
-      url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+  <!-- Calendly popup "Book Now" button -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+  (function(){
+    const btn = document.createElement('a');
+    btn.href = '#';
+    btn.textContent = 'Book now';
+    btn.onclick = function(){
+      Calendly.initPopupWidget({
+        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+      });
+      return false;
+    };
+    Object.assign(btn.style, {
+      position:'fixed', left:'18px', bottom:'18px',
+      padding:'12px 16px', borderRadius:'999px',
+      background:'#0ea5e9', color:'#fff', fontWeight:'700',
+      boxShadow:'0 6px 16px rgba(0,0,0,.15)', zIndex:9999,
+      textDecoration:'none', fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
     });
-    return false;
-  };
-Object.assign(btn.style, {
-  position:'fixed', left:'18px', bottom:'18px',   // adjust if needed (try 18 → 120)
-  padding:'12px 16px',
-  borderRadius:'999px',
-  background:'#0ea5e9',
-  color:'#fff',
-  fontWeight:'700',
-  boxShadow:'0 6px 16px rgba(0,0,0,.15)',
-  zIndex: 9999,
-  textDecoration:'none',
-  fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
-});
-  document.body.appendChild(btn);
-})();
-</script>
+    document.body.appendChild(btn);
+  })();
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
