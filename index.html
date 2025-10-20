@@ -184,26 +184,63 @@
             <li>Same-day availability</li>
           </ul>
         </div>
-        <form class="card form" action="https://formspree.io/f/xqayjvwo" method="POST">
-          <label>
-            <span>Name</span>
-            <input name="name" autocomplete="name" required>
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required>
-          </label>
-          <label>
-            <span>Phone</span>
-            <input name="phone" autocomplete="tel" required>
-          </label>
-          <label>
-            <span>How can we help?</span>
-            <textarea name="message" rows="5" required></textarea>
-          </label>
-          <button class="btn btn-lg" type="submit">Request quote</button>
-          <p class="form-foot">Or call us now: <a href="tel:+441162222222">0116 222 2222</a></p>
-        </form>
+        <input type="hidden" name="page" value="Home">
+<label>
+  <span>Service</span>
+  <select name="service" required>
+    <option value="">Select a service…</option>
+    <option>Emergency leak</option>
+    <option>Boiler service</option>
+    <option>Boiler install quote</option>
+    <option>Bathroom/upgrade</option>
+    <option>Other</option>
+  </select>
+</label>
+
+<label>
+  <span>Urgency</span>
+  <select name="urgency" required>
+    <option value="">How urgent is it?</option>
+    <option>Right now (emergency)</option>
+    <option>Today</option>
+    <option>This week</option>
+    <option>Flexible</option>
+  </select>
+</label>
+
+<label>
+  <span>Preferred time</span>
+  <select name="preferred_time" required>
+    <option value="">Pick a slot…</option>
+    <option>8–11am</option>
+    <option>11am–2pm</option>
+    <option>2–5pm</option>
+    <option>After 5pm</option>
+  </select>
+</label>
+
+<label>
+  <span>Name</span>
+  <input name="name" autocomplete="name" required>
+</label>
+
+<label>
+  <span>Email</span>
+  <input type="email" name="email" autocomplete="email" required>
+</label>
+
+<label>
+  <span>Phone</span>
+  <input name="phone" inputmode="tel" pattern="[0-9 +()-]{7,}" required>
+</label>
+
+<label>
+  <span>How can we help? (add a link to photos if you have them)</span>
+  <textarea name="message" rows="5" required></textarea>
+</label>
+
+<button class="btn btn-lg" type="submit">Request quote</button>
+<p class="form-foot">Or call us now: <a href="tel:+441162222222">0116 222 2222</a></p>
       </div>
     </section>
   </main>
@@ -273,6 +310,7 @@ Object.assign(btn.style, {
 </script>
 </body>
 </html>
+
 
 
 
