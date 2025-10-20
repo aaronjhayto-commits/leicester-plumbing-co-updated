@@ -57,6 +57,11 @@
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
           <!-- Book-now injected later if missing -->
+         <li>
+  <a class="btn btn-sm btn-ghost"
+     href="https://wa.me/447546537396?text=Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with..."
+     target="_blank" rel="noopener">WhatsApp</a>
+</li>
           <li><a class="btn btn-sm" href="tel:+441162222222">Call 0116 222 2222</a></li>
         </ul>
       </nav>
@@ -205,7 +210,24 @@
     });
   })();
   </script>
+<div id="sticky-cta" style="
+  position:fixed; left:0; right:0; bottom:0; z-index:9998;
+  display:flex; gap:8px; justify-content:center; padding:10px;
+  background:linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,0));
+">
+  <a href="https://wa.me/441162222222?text=Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with..."
+     class="btn btn-lg" style="background:#25D366;">WhatsApp</a>
+  <a href="tel:+441162222222" class="btn btn-lg">Call</a>
+</div>
+<script>
+  // Hide sticky bar on desktops (only show if viewport < 820px)
+  function toggleSticky(){ 
+    document.getElementById('sticky-cta').style.display = (window.innerWidth < 820) ? 'flex' : 'none';
+  }
+  toggleSticky(); window.addEventListener('resize', toggleSticky);
+</script>
 </body>
 </html>
+
 
 
