@@ -7,20 +7,16 @@
   <meta name="description" content="Market-leading plumbers in Leicester. 24/7 emergencies, boiler installs and servicing, leaks fixed fast, bathrooms, and heating. Fixed fair pricing." />
   <meta name="theme-color" content="#0ea5e9">
 
-  <!-- Favicon -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-
-  <!-- Styles (cache-busted) -->
   <link rel="stylesheet" href="styles.css?v=8" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Force full-colour logos -->
   <style>
     .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
   </style>
 
-  <!-- JSON-LD for SEO -->
+  <!-- SEO schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -30,30 +26,14 @@
     "image":"https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/assets/og-cover.jpg",
     "telephone":"+44 116 222 2222",
     "email":"bookings@leicesterplumbing.example",
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Leicester",
-      "addressRegion":"Leicestershire",
-      "postalCode":"LE1",
-      "addressCountry":"GB"
-    },
+    "address":{"@type":"PostalAddress","addressLocality":"Leicester","addressRegion":"Leicestershire","postalCode":"LE1","addressCountry":"GB"},
     "areaServed":"Leicester & Leicestershire",
     "openingHoursSpecification":[
       {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"00:00","closes":"23:59"},
       {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"00:00","closes":"23:59"}
     ],
     "priceRange":"££",
-    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"218"},
-    "potentialAction":{
-      "@type":"ReserveAction",
-      "target":{
-        "@type":"EntryPoint",
-        "urlTemplate":"https://calendly.com/aaronjhayto/book-a-plumber-visit",
-        "inLanguage":"en-GB",
-        "actionPlatform":["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"]
-      },
-      "result":{"@type":"Reservation","name":"Plumber visit booking"}
-    }
+    "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"218"}
   }
   </script>
 </head>
@@ -76,7 +56,7 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a class="btn btn-sm" href="#" id="bookNowNav">Book now</a></li>
+          <!-- Book-now injected later if missing -->
           <li><a class="btn btn-sm" href="tel:+441162222222">Call 0116 222 2222</a></li>
         </ul>
       </nav>
@@ -117,16 +97,109 @@
         <p>From burst pipes to premium boilers — we’ve got you covered.</p>
       </header>
       <div class="grid-3">
-        <article class="card" data-animate="fade-up">
-          <h3>Emergency Plumber</h3>
-          <p>Rapid response for leaks, burst pipes, blocked drains, and heating failures — 24 hours a day.</p>
-          <a class="link" href="services.html#emergency">Learn more</a>
-        </article>
-        <article class="card" data-animate="fade-up" data-delay="100">
-          <h3>Boiler Installs & Service</h3>
-          <p>Efficient, guaranteed installs. Annual servicing to keep your boiler safe and bills low.</p>
-          <a class="link" href="services.html#boilers">Learn more</a>
-        </article>
-        <article class="card" data-animate="fade-up" data-delay="200">
-          <h3>Bathrooms & Upgrades</h3>
-          <p>Design to installation — premium bathrooms, tiling, fixtures
+        <article class="card"><h3>Emergency Plumber</h3><p>Rapid response 24 hours a day.</p></article>
+        <article class="card"><h3>Boiler Installs & Service</h3><p>Efficient, guaranteed installs and servicing.</p></article>
+        <article class="card"><h3>Bathrooms & Upgrades</h3><p>Design to installation — premium bathrooms and fixtures.</p></article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" style="padding:3rem 1rem;max-width:900px;margin:0 auto;color:#fff;">
+      <h2 style="font-size:1.8rem;margin:0 0 1rem;">FAQs</h2>
+      <details><summary>Do you charge a callout fee?</summary><p>We quote up-front. No hidden surprises.</p></details>
+      <details><summary>How soon can you attend?</summary><p>Same-day in Leicester. 24/7 emergencies.</p></details>
+      <details><summary>Are you Gas Safe?</summary><p>Yes — all boiler work by registered engineers.</p></details>
+      <details><summary>Which areas do you cover?</summary><p>Leicester & Leicestershire.</p></details>
+    </section>
+
+    <!-- QUOTE FORM -->
+    <section id="quote" class="quote">
+      <div class="container grid-2">
+        <div>
+          <h2>Get a fast, fair quote</h2>
+          <p>Tell us what’s wrong and when to visit. We reply within minutes during business hours.</p>
+          <ul class="ticks"><li>Transparent pricing</li><li>Photos welcome</li><li>Same-day availability</li></ul>
+        </div>
+
+        <form class="card form" action="https://formspree.io/f/xqayjvwo" method="POST">
+          <input type="hidden" name="page" value="Home">
+          <label><span>Service</span>
+            <select name="service" required>
+              <option value="">Select a service…</option>
+              <option>Emergency leak</option><option>Boiler service</option>
+              <option>Boiler install quote</option><option>Bathroom/upgrade</option><option>Other</option>
+            </select>
+          </label>
+          <label><span>Urgency</span>
+            <select name="urgency" required>
+              <option value="">How urgent is it?</option>
+              <option>Right now (emergency)</option><option>Today</option>
+              <option>This week</option><option>Flexible</option>
+            </select>
+          </label>
+          <label><span>Preferred time</span>
+            <select name="preferred_time" required>
+              <option value="">Pick a slot…</option>
+              <option>8–11 am</option><option>11 am–2 pm</option>
+              <option>2–5 pm</option><option>After 5 pm</option>
+            </select>
+          </label>
+          <label><span>Name</span><input name="name" required></label>
+          <label><span>Email</span><input type="email" name="email" required></label>
+          <label><span>Phone</span><input name="phone" inputmode="tel" pattern="[0-9 +()-]{7,}" required></label>
+          <label><span>How can we help?</span><textarea name="message" rows="5" required></textarea></label>
+          <button class="btn btn-lg" type="submit">Request quote</button>
+          <p class="form-foot">Or call us now: <a href="tel:+441162222222">0116 222 2222</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container grid-3">
+      <div><strong>Leicester Plumbing Co</strong><p>Reliable local plumbers covering Leicester & Leicestershire.</p></div>
+      <nav><ul><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li></ul></nav>
+      <div><a class="btn btn-sm" href="tel:+441162222222">Call 0116 222 2222</a><p class="tiny">© <span id="year"></span> Leicester Plumbing Co.</p></div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script>window.embeddedChatbotConfig={chatbotId:"rL8EPf39llgdwMS-JB0j_",domain:"www.chatbase.co"};</script>
+  <script defer src="https://www.chatbase.co/embed.min.js"></script>
+
+  <!-- Calendly floating + top-nav button -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script>
+  (function(){
+    // Floating button
+    const floatBtn=document.createElement('a');
+    floatBtn.href='#'; floatBtn.textContent='Book now';
+    floatBtn.onclick=function(){Calendly.initPopupWidget({url:'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'});return false;}
+    Object.assign(floatBtn.style,{position:'fixed',left:'18px',bottom:'18px',padding:'12px 16px',borderRadius:'999px',background:'#0ea5e9',color:'#fff',fontWeight:'700',boxShadow:'0 6px 16px rgba(0,0,0,.15)',zIndex:9999,textDecoration:'none',fontFamily:'system-ui,-apple-system,Segoe UI,Roboto,Arial'});
+    document.body.appendChild(floatBtn);
+
+    // Inject Book Now in nav if missing
+    const nav=document.querySelector('#nav-menu');
+    if(nav&&!document.getElementById('bookNowNav')){
+      const li=document.createElement('li');
+      const a=document.createElement('a');
+      a.id='bookNowNav'; a.className='btn btn-sm'; a.href='#'; a.textContent='Book now';
+      li.appendChild(a);
+      const lastLi=nav.querySelector('li:last-child');
+      if(lastLi) nav.insertBefore(li,lastLi); else nav.appendChild(li);
+    }
+
+    // Hook popup to both
+    const navLink=document.getElementById('bookNowNav');
+    [floatBtn,navLink].forEach(el=>{
+      if(el)el.addEventListener('click',e=>{
+        e.preventDefault();
+        Calendly.initPopupWidget({url:'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'});
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
