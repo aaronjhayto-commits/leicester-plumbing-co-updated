@@ -76,8 +76,22 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn btn-sm" href="#" id="bookNowNav">Book now</a></li>
           <li><a class="btn btn-sm" href="tel:+441162222222">Call 0116 222 2222</a></li>
         </ul>
+        <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var link = document.getElementById('bookNowNav');
+    if (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        Calendly.initPopupWidget({
+          url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+        });
+      });
+    }
+  });
+</script>
       </nav>
     </div>
   </header>
@@ -316,3 +330,4 @@
   </script>
 </body>
 </html>
+
