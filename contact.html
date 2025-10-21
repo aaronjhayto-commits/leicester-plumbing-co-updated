@@ -3,83 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact — Leicester Plumbing Co</title>
-  <meta name="description" content="Request a quote or book a Leicester plumber. Fast replies during business hours.">
-  <link rel="icon" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Contact Us | Leicester Plumbing Co</title>
+  <meta name="description" content="Get in touch with Leicester Plumbing Co — 24/7 local plumbers covering Leicester & Leicestershire. Call 0116 123 4567 or request a quote online." />
+  <meta name="theme-color" content="#0ea5e9">
+  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
+
 <body>
-  <header class="site-header">
+  <header class="site-header" data-sticky>
     <div class="container row between center">
-      <a href="index.html" class="brand"><img src="assets/logo.svg" alt="" width="36" height="36"> <span>Leicester Plumbing Co</span></a>
+      <a href="index.html" class="brand">
+        <img src="assets/logo.svg" alt="Leicester Plumbing Co" width="36" height="36" />
+        <span>Leicester Plumbing Co</span>
+      </a>
       <nav class="nav" aria-label="Primary">
-        <button class="hamburger" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
         <ul id="nav-menu">
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a class="active" href="contact.html">Contact</a></li>
-          <li><a class="btn btn-sm" href="tel:+441162222222">Call 0116 222 2222</a></li>
+          <li><a class="btn btn-sm" href="tel:+441161234567">Call 0116 123 4567</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container pad">
-    <h1>Contact us</h1>
-    <p class="lead">Fast responses 08:00–20:00. Emergencies 24/7.</p>
-  <section aria-label="Book a visit online" style="padding:2rem 1rem;">
-  <h2>Book a visit online</h2>
-  <p>Prefer to choose a time now? Use our live calendar:</p>
+  <main id="main" class="container" style="padding:3rem 1rem;">
+    <h1>Contact Us</h1>
+    <p>Need a quote or emergency help? You can reach us any time.</p>
 
-  <div class="calendly-inline-widget"
-       data-url="https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_event_type_details=1&hide_gdpr_banner=1"
-       style="min-width:320px;height:700px;"></div>
-</section>
+    <ul style="margin:1.5rem 0;">
+      <li><strong>Phone:</strong> <a href="tel:+441161234567">0116 123 4567</a></li>
+      <li><strong>Email:</strong> <a href="mailto:bookings@leicesterplumbing.example">bookings@leicesterplumbing.example</a></li>
+      <li><strong>Area Covered:</strong> Leicester & Leicestershire</li>
+    </ul>
 
-    <div class="grid-2">
-      <form class="card form" action="https://formspree.io/f/yourcode" method="POST">
-        <label><span>Name</span><input name="name" required></label>
-        <label><span>Email</span><input type="email" name="email" required></label>
-        <label><span>Phone</span><input name="phone" required></label>
-        <label><span>Your message</span><textarea name="message" rows="6" required></textarea></label>
-        <button class="btn btn-lg" type="submit">Send</button>
-        <p class="form-foot tiny">By submitting, you agree to our <a href="privacy.html">privacy policy</a>.</p>
-      </form>
-      <input type="hidden" name="_redirect" value="https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/thank-you.html">
-      <div>
-        <div class="card contact-card">
-          <p><strong>Phone:</strong> <a href="tel:+441162222222">0116 222 2222</a></p>
-          <p><strong>Email:</strong> <a href="mailto:bookings@leicesterplumbing.example">bookings@leicesterplumbing.example</a></p>
-          <p><strong>Hours:</strong> 24/7 emergencies</p>
-          <p><strong>Areas:</strong> Leicester & Leicestershire</p>
-        </div>
-        <iframe class="map" title="Leicester map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=-1.207%2C52.58%2C-1.05%2C52.70&layer=mapnik"></iframe>
-      </div>
-    </div>
+    <form class="card form" action="https://formspree.io/f/xqayjvwo" method="POST">
+      <label><span>Name</span><input name="name" required></label>
+      <label><span>Email</span><input type="email" name="email" required></label>
+      <label><span>Phone</span><input name="phone" required></label>
+      <label><span>Message</span><textarea name="message" rows="5" required></textarea></label>
+      <button class="btn btn-lg" type="submit">Send Message</button>
+    </form>
   </main>
 
   <footer class="site-footer">
     <div class="container grid-3">
-      <div><strong>Leicester Plumbing Co</strong><p>Reliable local plumbers.</p></div>
-      <nav><ul><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" class="active">Contact</a></li></ul></nav>
-      <div><a class="btn btn-sm" href="tel:+441162222222">Call 0116 222 2222</a></div>
+      <div>
+        <strong>Leicester Plumbing Co</strong>
+        <p>Reliable local plumbers covering Leicester & Leicestershire.</p>
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a class="btn btn-sm" href="tel:+441161234567">Call 0116 123 4567</a>
+        <p class="tiny">© <span id="year"></span> Leicester Plumbing Co. All rights reserved.</p>
+      </div>
     </div>
   </footer>
   <script src="script.js" defer></script>
-<!-- Chatbase chat bubble -->
-<script>
-  window.embeddedChatbotConfig = {
-    chatbotId: "rL8EPf39llgdwMS-JB0j_",  /* your bot ID */
-    domain: "www.chatbase.co"
-  };
-</script>
-<script defer src="https://www.chatbase.co/embed.min.js"></script>
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
-
 </html>
-
-
-
