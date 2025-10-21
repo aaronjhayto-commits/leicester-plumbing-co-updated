@@ -56,7 +56,19 @@
       .site-header .brand span { font-size: 1.12rem; }
     }
   </style>
-
+<style>
+/* Fix contact button colour consistency */
+nav a[href="contact.html"].btn,
+nav a[href="contact.html"].btn-sm {
+  background:#0b1220 !important;  /* match header background */
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.15);
+}
+nav a[href="contact.html"].btn:hover {
+  background:#0ea5e9 !important;
+  color:#fff !important;
+}
+</style>
   <!-- Business Schema (kept) -->
   <script type="application/ld+json">
   {
@@ -624,6 +636,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </style>
 </body>
 </html>
+
 
 
 
