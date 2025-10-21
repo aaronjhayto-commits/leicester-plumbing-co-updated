@@ -73,16 +73,19 @@
     }
   </style>
 <style>
-/* Fix contact button colour consistency */
-nav a[href="contact.html"].btn,
-nav a[href="contact.html"].btn-sm {
-  background:#0b1220 !important;  /* match header background */
-  color:#fff !important;
-  border:1px solid rgba(255,255,255,.15);
+<style>
+/* Force Contact button to stay dark across all pages */
+header.site-header nav ul li a[href*="contact.html"].btn,
+header.site-header nav ul li a[href*="contact.html"].btn-sm {
+  background-color: #0b1220 !important;  /* same as header background */
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  box-shadow: none !important;
 }
-nav a[href="contact.html"].btn:hover {
-  background:#0ea5e9 !important;
-  color:#fff !important;
+header.site-header nav ul li a[href*="contact.html"].btn:hover,
+header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
+  background-color: #0ea5e9 !important;
+  color: #ffffff !important;
 }
 </style>
   <!-- Business Schema (kept) -->
@@ -675,6 +678,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </style>
 </body>
 </html>
+
 
 
 
