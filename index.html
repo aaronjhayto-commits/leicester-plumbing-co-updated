@@ -139,6 +139,32 @@
           <a class="link" href="services.html#bathrooms">Learn more</a>
         </article>
       </div>
+            </div> <!-- end .grid-3 -->
+
+      <!-- MINI STRIP: why choose us + quick CTA -->
+      <div style="margin-top:1rem; display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
+        <div class="card" style="padding:1rem;">
+          <strong>Up-front pricing</strong>
+          <p style="margin:.35rem 0 0; opacity:.8;">No hidden fees. Clear quotes before work begins.</p>
+        </div>
+        <div class="card" style="padding:1rem;">
+          <strong>Same-day availability</strong>
+          <p style="margin:.35rem 0 0; opacity:.8;">Rapid response across Leicester & Leicestershire.</p>
+        </div>
+        <div class="card" style="padding:1rem;">
+          <strong>Gas Safe engineers</strong>
+          <p style="margin:.35rem 0 0; opacity:.8;">Boilers serviced and installed by registered pros.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+        <a class="btn btn-lg" href="#" id="bookNowServices">Book a visit</a>
+        <a class="btn btn-lg btn-ghost" href="#quote">Get a quick quote</a>
+      </div>
+
+      <p class="tiny" style="margin-top:.75rem; opacity:.8;">
+        Serving Leicester, Oadby, Wigston, Evington, Braunstone, Birstall & Glenfield.
+      </p>
     </section>
 <!-- IMAGE BREAK -->
 <section class="image-break" style="margin:2rem 0 1rem;">
@@ -325,8 +351,19 @@ document.addEventListener('click', function (e) {
   }
 });
 </script>
+<script>
+document.addEventListener('click', function(e){
+  if (e.target && e.target.id === 'bookNowServices') {
+    e.preventDefault();
+    Calendly.initPopupWidget({
+      url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+    });
+  }
+});
+</script>
 </body>
 </html>
+
 
 
 
