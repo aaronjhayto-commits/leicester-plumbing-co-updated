@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -117,24 +117,27 @@
     </section>
 
 <!-- SERVICES -->
-<section class="cards container" style="padding-bottom:1.25rem; margin-bottom:0;">
-  <header class="section-head">
-    <h2>What we do best</h2>
-    <p>From burst pipes to premium boilers — we’ve got you covered.</p>
+<section class="cards container" style="padding:1.25rem 0 .75rem; margin:0;">
+  <header class="section-head" style="margin:0 0 .75rem;">
+    <h2 style="margin:0;">What we do best</h2>
+    <p style="margin:.35rem 0 0;">From burst pipes to premium boilers — we’ve got you covered.</p>
   </header>
 
-  <div class="grid-3">
-    <article class="card" data-animate="fade-up">
+  <!-- THE THREE SERVICE CARDS -->
+  <div class="grid-3" style="gap:12px; margin:0;">
+    <article class="card" data-animate="fade-up" style="padding:1rem;">
       <h3>Emergency Plumber</h3>
       <p>Rapid response for leaks, burst pipes, blocked drains, and heating failures — 24 hours a day.</p>
       <a class="link" href="services.html#emergency">Learn more</a>
     </article>
-    <article class="card" data-animate="fade-up" data-delay="100">
+
+    <article class="card" data-animate="fade-up" data-delay="100" style="padding:1rem;">
       <h3>Boiler Installs & Service</h3>
       <p>Efficient, guaranteed installs. Annual servicing to keep your boiler safe and bills low.</p>
       <a class="link" href="services.html#boilers">Learn more</a>
     </article>
-    <article class="card" data-animate="fade-up" data-delay="200">
+
+    <article class="card" data-animate="fade-up" data-delay="200" style="padding:1rem;">
       <h3>Bathrooms & Upgrades</h3>
       <p>Design to installation — premium bathrooms, tiling, fixtures, and smart heating controls.</p>
       <a class="link" href="services.html#bathrooms">Learn more</a>
@@ -369,6 +372,7 @@ document.addEventListener('click', function(e){
 </script>
 </body>
 </html>
+
 
 
 
