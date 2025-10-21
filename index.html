@@ -1,12 +1,6 @@
 <!doctype html>
 <html lang="en">
-<style>
-  /* Tighten the Services section spacing site-wide */
-  .cards.container{ padding-top:.75rem !important; padding-bottom:.75rem !important; }
-  .cards .section-head{ margin-bottom:.5rem !important; }
-  .cards .grid-3{ margin-top:.75rem !important; }   /* kills the big gap */
-</style>
-  <head>
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Leicester Plumbing Co — 24/7 Plumbers & Boiler Experts</title>
@@ -16,13 +10,18 @@
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=9" />
+  <!-- Styles (cache-busted) -->
+  <link rel="stylesheet" href="styles.css?v=10" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Small overrides -->
   <style>
     .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
+    /* Tighten Services spacing */
+    .cards.container{ padding-top:.75rem !important; padding-bottom:.75rem !important; margin:0 !important; }
+    .cards .section-head{ margin-bottom:.5rem !important; }
+    .cards .grid-3{ gap:12px !important; margin:0 !important; }
   </style>
 
   <!-- JSON-LD for SEO -->
@@ -77,21 +76,18 @@
         <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
-     <ul id="nav-menu">
-  <li><a href="services.html">Services</a></li>
-  <li><a href="about.html">About</a></li>
-  <li><a href="contact.html">Contact</a></li>
-
-  <li><a class="btn btn-sm" href="#" id="bookNowNav">Book now</a></li>
-
-  <li>
-    <a class="btn btn-sm btn-ghost"
-       href="https://wa.me/441161234567?text=Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with..."
-       target="_blank" rel="noopener">WhatsApp</a>
-  </li>
-
-  <li><a class="btn btn-sm" href="tel:+441161234567">Call 0116 123 4567</a></li>
-</ul>
+        <ul id="nav-menu">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn btn-sm" href="#" id="bookNowNav">Book now</a></li>
+          <li>
+            <a class="btn btn-sm btn-ghost"
+               href="https://wa.me/441161234567?text=Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with..."
+               target="_blank" rel="noopener">WhatsApp</a>
+          </li>
+          <li><a class="btn btn-sm" href="tel:+441161234567">Call 0116 123 4567</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -114,6 +110,7 @@
         </ul>
       </div>
     </section>
+
     <!-- TRUST LOGOS -->
     <section class="logos container" aria-label="Trusted by">
       <img src="assets/gassafe.png?v=8" alt="Gas Safe" />
@@ -122,100 +119,102 @@
       <img src="assets/which.svg?v=8" alt="Which?" />
     </section>
 
-<!-- SERVICES -->
-<section class="cards container" style="padding:1.25rem 0 .75rem; margin:0;">
-  <header class="section-head" style="margin:0 0 .75rem;">
-    <h2 style="margin:0;">What we do best</h2>
-    <p style="margin:.35rem 0 0;">From burst pipes to premium boilers — we’ve got you covered.</p>
-  </header>
+    <!-- SERVICES -->
+    <section class="cards container" style="padding:1rem 0 .5rem; margin:0;">
+      <header class="section-head" style="margin:0 0 .5rem;">
+        <h2 style="margin:0;">What we do best</h2>
+        <p style="margin:.35rem 0 0;">From burst pipes to premium boilers — we’ve got you covered.</p>
+      </header>
 
-  <!-- THE THREE SERVICE CARDS -->
-  <div class="grid-3" style="gap:12px; margin:0;">
-    <article class="card" data-animate="fade-up" style="padding:1rem;">
-      <h3>Emergency Plumber</h3>
-      <p>Rapid response for leaks, burst pipes, blocked drains, and heating failures — 24 hours a day.</p>
-      <a class="link" href="services.html#emergency">Learn more</a>
-    </article>
+      <!-- THE THREE SERVICE CARDS (force visible to avoid animation hiding) -->
+      <div class="grid-3" style="gap:12px; margin:0;">
+        <article class="card" data-animate="fade-up" style="padding:1rem; opacity:1; transform:none;">
+          <h3>Emergency Plumber</h3>
+          <p>Rapid response for leaks, burst pipes, blocked drains, and heating failures — 24 hours a day.</p>
+          <a class="link" href="services.html#emergency">Learn more</a>
+        </article>
 
-    <article class="card" data-animate="fade-up" data-delay="100" style="padding:1rem;">
-      <h3>Boiler Installs & Service</h3>
-      <p>Efficient, guaranteed installs. Annual servicing to keep your boiler safe and bills low.</p>
-      <a class="link" href="services.html#boilers">Learn more</a>
-    </article>
+        <article class="card" data-animate="fade-up" data-delay="100" style="padding:1rem; opacity:1; transform:none;">
+          <h3>Boiler Installs & Service</h3>
+          <p>Efficient, guaranteed installs. Annual servicing to keep your boiler safe and bills low.</p>
+          <a class="link" href="services.html#boilers">Learn more</a>
+        </article>
 
-    <article class="card" data-animate="fade-up" data-delay="200" style="padding:1rem;">
-      <h3>Bathrooms & Upgrades</h3>
-      <p>Design to installation — premium bathrooms, tiling, fixtures, and smart heating controls.</p>
-      <a class="link" href="services.html#bathrooms">Learn more</a>
-    </article>
-  </div>
+        <article class="card" data-animate="fade-up" data-delay="200" style="padding:1rem; opacity:1; transform:none;">
+          <h3>Bathrooms & Upgrades</h3>
+          <p>Design to installation — premium bathrooms, tiling, fixtures, and smart heating controls.</p>
+          <a class="link" href="services.html#bathrooms">Learn more</a>
+        </article>
+      </div>
 
-  <!-- WHY CHOOSE US mini strip -->
-  <div style="margin-top:1rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
-    <div class="card" style="padding:1rem;">
-      <strong>Up-front pricing</strong>
-      <p style="margin:.35rem 0 0; opacity:.8;">No hidden fees. Clear quotes before work begins.</p>
-    </div>
-    <div class="card" style="padding:1rem;">
-      <strong>Same-day availability</strong>
-      <p style="margin:.35rem 0 0; opacity:.8;">Rapid response across Leicester & Leicestershire.</p>
-    </div>
-    <div class="card" style="padding:1rem;">
-      <strong>Gas Safe engineers</strong>
-      <p style="margin:.35rem 0 0; opacity:.8;">Boilers serviced and installed by registered pros.</p>
-    </div>
-  </div>
+      <!-- WHY CHOOSE US mini strip -->
+      <div style="margin-top:1rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
+        <div class="card" style="padding:1rem;">
+          <strong>Up-front pricing</strong>
+          <p style="margin:.35rem 0 0; opacity:.8;">No hidden fees. Clear quotes before work begins.</p>
+        </div>
+        <div class="card" style="padding:1rem;">
+          <strong>Same-day availability</strong>
+          <p style="margin:.35rem 0 0; opacity:.8;">Rapid response across Leicester & Leicestershire.</p>
+        </div>
+        <div class="card" style="padding:1rem;">
+          <strong>Gas Safe engineers</strong>
+          <p style="margin:.35rem 0 0; opacity:.8;">Boilers serviced and installed by registered pros.</p>
+        </div>
+      </div>
 
-  <!-- inline CTA row -->
-  <div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
-    <a class="btn btn-lg" href="#" id="bookNowServices">Book a visit</a>
-    <a class="btn btn-lg btn-ghost" href="#quote">Get a quick quote</a>
-  </div>
+      <!-- inline CTA row -->
+      <div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+        <a class="btn btn-lg" href="#" id="bookNowServices">Book a visit</a>
+        <a class="btn btn-lg btn-ghost" href="#quote">Get a quick quote</a>
+      </div>
 
-  <p class="tiny" style="margin-top:.75rem; opacity:.8;">
-    Serving Leicester, Oadby, Wigston, Evington, Braunstone, Birstall & Glenfield.
-  </p>
-</section>
+      <p class="tiny" style="margin-top:.75rem; opacity:.8;">
+        Serving Leicester, Oadby, Wigston, Evington, Braunstone, Birstall & Glenfield.
+      </p>
+    </section>
 
-<!-- IMAGE BREAK (tight, neat) -->
-<section class="image-break" style="margin:1.25rem 0 .75rem;">
-  <div class="container" style="overflow:hidden; border-radius:12px;">
-    <img
-      src="assets/service-maintenance-worker-repairing.jpg"
-      alt="Professional plumber fixing sink under counter"
-      loading="lazy" decoding="async"
-      style="width:100%; height:380px; display:block; object-fit:cover; object-position:55% 50%;">
-  </div>
-</section>
+    <!-- IMAGE BREAK (tight, neat) -->
+    <section class="image-break" style="margin:1rem 0 .75rem;">
+      <div class="container" style="overflow:hidden; border-radius:12px;">
+        <img
+          src="assets/service-maintenance-worker-repairing.jpg"
+          alt="Professional plumber fixing sink under counter"
+          loading="lazy" decoding="async"
+          style="width:100%; height:380px; display:block; object-fit:cover; object-position:55% 50%;">
+      </div>
+    </section>
+
     <!-- REVIEWS -->
-<section class="reviews" style="padding:1.5rem 0 1rem; margin:0;">
-  <div class="container">
-    <header class="section-head" style="margin-bottom:1rem;">
-      <h2>Customers rate us 4.9/5</h2>
-      <p>Real reviews from Leicester homeowners and landlords.</p>
-    </header>
+    <section class="reviews" style="padding:1.25rem 0 1rem; margin:0;">
+      <div class="container">
+        <header class="section-head" style="margin-bottom:1rem;">
+          <h2>Customers rate us 4.9/5</h2>
+          <p>Real reviews from Leicester homeowners and landlords.</p>
+        </header>
 
-    <div class="grid-3" style="gap:1rem;">
-      <blockquote class="review"
-        style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
-        <p style="margin:0 0 .5rem;">“Turned up within the hour and fixed a major leak. Price exactly as quoted.”</p>
-        <cite style="opacity:.8;">— Amy R.</cite>
-      </blockquote>
+        <div class="grid-3" style="gap:1rem;">
+          <blockquote class="review"
+            style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
+            <p style="margin:0 0 .5rem;">“Turned up within the hour and fixed a major leak. Price exactly as quoted.”</p>
+            <cite style="opacity:.8;">— Amy R.</cite>
+          </blockquote>
 
-      <blockquote class="review"
-        style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
-        <p style="margin:0 0 .5rem;">“New boiler installed next-day. Clean, tidy, and super professional.”</p>
-        <cite style="opacity:.8;">— Darren W.</cite>
-      </blockquote>
+          <blockquote class="review"
+            style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
+            <p style="margin:0 0 .5rem;">“New boiler installed next-day. Clean, tidy, and super professional.”</p>
+            <cite style="opacity:.8;">— Darren W.</cite>
+          </blockquote>
 
-      <blockquote class="review"
-        style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
-        <p style="margin:0 0 .5rem;">“The only plumbers I trust for my rentals. 10/10 communication.”</p>
-        <cite style="opacity:.8;">— Priya S. (Landlord)</cite>
-      </blockquote>
-    </div>
-  </div>
-</section>
+          <blockquote class="review"
+            style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
+            <p style="margin:0 0 .5rem;">“The only plumbers I trust for my rentals. 10/10 communication.”</p>
+            <cite style="opacity:.8;">— Priya S. (Landlord)</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section id="faq" style="padding:3rem 1rem; max-width:900px; margin:0 auto; color:#fff;">
       <h2 style="font-size:1.8rem; margin:0 0 1rem;">FAQs</h2>
@@ -252,12 +251,10 @@
 
         <form class="card form" action="https://formspree.io/f/xqayjvwo" method="POST">
           <input type="hidden" name="page" value="Home">
-
           <label><span>Name</span><input name="name" required></label>
           <label><span>Email</span><input type="email" name="email" required></label>
           <label><span>Phone</span><input name="phone" required></label>
           <label><span>How can we help?</span><textarea name="message" rows="5" required></textarea></label>
-
           <button class="btn btn-lg" type="submit">Request quote</button>
           <p class="form-foot">Or call us now: <a href="tel:+441161234567">0116 123 4567</a></p>
         </form>
@@ -296,9 +293,11 @@
   </script>
   <script defer src="https://www.chatbase.co/embed.min.js"></script>
 
-  <!-- Calendly popup "Book Now" button -->
+  <!-- Calendly popup -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+  <!-- Floating “Book now” (desktop only) -->
   <script>
   (function(){
     if (window.innerWidth < 768) return; // hide on mobile
@@ -321,79 +320,44 @@
     document.body.appendChild(btn);
   })();
   </script>
-<!-- Floating WhatsApp button -->
-<script>
-(function(){
-  // Config
-  var waNumber = '441161234567'; // 0116 123 4567 (no + or spaces)
-  var prefill  = 'Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with...';
 
-  // Create button
-  var wa = document.createElement('a');
-  wa.href = 'https://wa.me/' + waNumber + '?text=' + prefill;
-  wa.target = '_blank'; wa.rel = 'noopener';
-  wa.setAttribute('aria-label','Chat on WhatsApp');
+  <!-- Floating WhatsApp button -->
+  <script>
+  (function(){
+    var waNumber = '441161234567';
+    var prefill  = 'Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with...';
+    var wa = document.createElement('a');
+    wa.href = 'https://wa.me/' + waNumber + '?text=' + prefill;
+    wa.target = '_blank'; wa.rel = 'noopener';
+    wa.setAttribute('aria-label','Chat on WhatsApp');
+    wa.textContent = 'WhatsApp';
+    Object.assign(wa.style, {
+      position: 'fixed', right: '18px', bottom: '90px',
+      zIndex: 9998, padding: '12px 16px', borderRadius: '999px',
+      background: '#25D366', color: '#000', fontWeight: '700',
+      textDecoration: 'none', boxShadow: '0 6px 16px rgba(0,0,0,.15)',
+      fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
+    });
+    if (window.innerWidth >= 380) { document.body.appendChild(wa); }
+  })();
+  </script>
 
-  wa.textContent = 'WhatsApp';
-  Object.assign(wa.style, {
-    position: 'fixed',
-    right: '18px',
-    bottom: '90px',   // sits above the chat bubble
-    zIndex: 9998,
-    padding: '12px 16px',
-    borderRadius: '999px',
-    background: '#25D366',
-    color: '#000',
-    fontWeight: '700',
-    textDecoration: 'none',
-    boxShadow: '0 6px 16px rgba(0,0,0,.15)',
-    fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
+  <!-- Hook up header + services CTAs to Calendly -->
+  <script>
+  document.addEventListener('click', function (e) {
+    if (e.target && e.target.id === 'bookNowNav') {
+      e.preventDefault();
+      Calendly.initPopupWidget({
+        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+      });
+    }
+    if (e.target && e.target.id === 'bookNowServices') {
+      e.preventDefault();
+      Calendly.initPopupWidget({
+        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+      });
+    }
   });
-
-  // Optional: hide on very small screens if you prefer fewer buttons
-  if (window.innerWidth >= 380) {
-    document.body.appendChild(wa);
-  }
-})();
-</script>
-<script>
-document.addEventListener('click', function (e) {
-  if (e.target && e.target.id === 'bookNowNav') {
-    e.preventDefault();
-    Calendly.initPopupWidget({
-      url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
-    });
-  }
-});
-</script>
-<script>
-document.addEventListener('click', function(e){
-  if (e.target && e.target.id === 'bookNowServices') {
-    e.preventDefault();
-    Calendly.initPopupWidget({
-      url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
-    });
-  }
-});
-</script>
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
