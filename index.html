@@ -463,38 +463,51 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- simple inline styles for slide-down menu on mobile -->
+<!-- simple inline styles for slide-down menu on mobile (fixed + scrollable) -->
 <style>
 @media (max-width: 900px) {
   nav ul#nav-menu {
     display: none;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.75rem;
     background: #0b1220;
-    position: absolute;
-    top: 100%;
-    right: 0;
+    position: fixed;
+    top: 84px; /* match your header height */
     left: 0;
-    padding: 1rem;
+    right: 0;
+    padding: 1.25rem;
     border-top: 1px solid rgba(255,255,255,.08);
+    z-index: 9999;
+    height: calc(100vh - 84px);
+    overflow-y: auto; /* scroll if needed */
   }
   nav ul#nav-menu.is-open {
     display: flex;
   }
-  .hamburger.is-active span:nth-child(1) { transform: rotate(45deg) translateY(6px); }
-  .hamburger.is-active span:nth-child(2) { opacity: 0; }
-  .hamburger.is-active span:nth-child(3) { transform: rotate(-45deg) translateY(-6px); }
+
+  /* animated hamburger lines */
   .hamburger span {
-    display:block;
-    width:24px;
-    height:2px;
-    background:#fff;
-    margin:5px 0;
-    transition:all .25s ease;
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    margin: 5px 0;
+    transition: all .25s ease;
+  }
+  .hamburger.is-active span:nth-child(1) {
+    transform: rotate(45deg) translateY(6px);
+  }
+  .hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-6px);
   }
 }
 </style>
 </body>
 </html>
+
 
 
 
