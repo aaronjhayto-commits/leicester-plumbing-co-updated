@@ -127,7 +127,7 @@
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a class="btn btn-sm" href="#" id="bookNowNav">Book now</a></li>
+          <li><a class="btn btn-sm" href="#" btn.id = 'bookFab'; id="bookNowNav">Book now</a></li>
           <li>
             <a class="btn btn-sm btn-ghost"
                href="https://wa.me/441161234567?text=Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with..."
@@ -415,23 +415,7 @@
 })();
 </script>
 
-  <!-- Hook up header + services CTAs to Calendly (with UTM) (kept) -->
-  <script>
-  document.addEventListener('click', function (e) {
-    if (e.target && e.target.id === 'bookNowNav') {
-      e.preventDefault();
-      Calendly.initPopupWidget({
-        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=demo&utm_medium=site&utm_campaign=header_cta'
-      });
-    }
-    if (e.target && e.target.id === 'bookNowServices') {
-      e.preventDefault();
-      Calendly.initPopupWidget({
-        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=demo&utm_medium=site&utm_campaign=services_cta'
-      });
-    }
-  });
-  </script>
+
 
   <!-- Fade-in observer for mid image (kept) -->
   <script>
@@ -550,8 +534,103 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
+<!-- Book-now chooser: Boiler service / Request quote / Emergency call -->
+<script>
+(function(){
+  const BOOKING_URL = 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=site&utm_medium=chooser&utm_campaign=boiler_service';
+  const TEL = '+441161234567';
+
+  function ensureCalendly(cb){
+    if (window.Calendly && Calendly.initPopupWidget) return cb();
+    const s = document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]');
+    if (s) { s.addEventListener('load', cb); return; }
+    const scr = document.createElement('script');
+    scr.src = 'https://assets.calendly.com/assets/external/widget.js';
+    scr.async = true;
+    scr.onload = cb;
+    document.head.appendChild(scr);
+  }
+
+  function openChooser(){
+    // build overlay only once
+    let o = document.getElementById('book-chooser');
+    if (!o){
+      o = document.createElement('div');
+      o.id = 'book-chooser';
+      o.innerHTML = `
+        <div class="bc-backdrop" data-close></div>
+        <div class="bc-panel" role="dialog" aria-modal="true" aria-label="Choose booking option">
+          <h3>What do you need today?</h3>
+          <button class="bc-btn" data-action="service">🔧 Boiler service (book instantly)</button>
+          <button class="bc-btn bc-secondary" data-action="quote">🧾 Something else (request a quote)</button>
+          <button class="bc-btn bc-quiet" data-action="call">💦 Emergency leak / no heat (call now)</button>
+          <button class="bc-close" data-close aria-label="Close">×</button>
+        </div>`;
+      document.body.appendChild(o);
+
+      // close handlers
+      o.addEventListener('click', (e)=>{
+        if (e.target.hasAttribute('data-close')) o.classList.remove('show');
+      });
+
+      // action handlers
+      o.querySelector('[data-action="service"]').addEventListener('click', function(){
+        ensureCalendly(()=> Calendly.initPopupWidget({ url: BOOKING_URL }));
+        o.classList.remove('show');
+      });
+      o.querySelector('[data-action="quote"]').addEventListener('click', function(){
+        o.classList.remove('show');
+        const target = document.getElementById('quote');
+        if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+      });
+      o.querySelector('[data-action="call"]').addEventListener('click', function(){
+        o.classList.remove('show');
+        window.location.href = 'tel:' + TEL;
+      });
+    }
+    o.classList.add('show');
+  }
+
+  // delegate clicks from all Book buttons we care about
+  document.addEventListener('click', function(e){
+    const el = e.target.closest('#bookNowNav, #bookNowServices, #bookFab');
+    if (!el) return;
+    e.preventDefault();
+    openChooser();
+  });
+})();
+</script>
+
+<style>
+/* chooser styles */
+#book-chooser{ position:fixed; inset:0; display:none; z-index:100000; }
+#book-chooser.show{ display:block; }
+#book-chooser .bc-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.5); }
+#book-chooser .bc-panel{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:min(520px,92vw); background:#0b1220; color:#fff;
+  border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+#book-chooser h3{ margin:0 0 12px; font-size:1.1rem }
+#book-chooser .bc-btn{
+  width:100%; text-align:left; padding:12px 14px; margin:8px 0;
+  border-radius:12px; border:1px solid #1b2a3c; background:#0d1526; color:#fff; font-weight:700;
+}
+#book-chooser .bc-secondary{ background:#0b1323; }
+#book-chooser .bc-quiet{ background:#0a1120; border-style:dashed; }
+#book-chooser .bc-btn:focus{ outline:none; box-shadow:0 0 0 3px rgba(16,165,233,.35); }
+#book-chooser .bc-close{
+  position:absolute; top:6px; right:10px; background:transparent; border:0; color:#bcd; font-size:28px; line-height:1; cursor:pointer;
+}
+@media (max-width: 480px){
+  #book-chooser .bc-panel{ width:94vw; padding:16px }
+  #book-chooser .bc-btn{ padding:12px }
+}
+</style>
 </body>
 </html>
+
 
 
 
