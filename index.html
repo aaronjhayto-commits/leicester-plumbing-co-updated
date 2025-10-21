@@ -116,61 +116,67 @@
       <img src="assets/which.svg?v=8" alt="Which?" />
     </section>
 
-    <!-- SERVICES -->
-    <section class="cards container" style="padding-bottom:1.25rem; margin-bottom:0;">
-      <header class="section-head">
-        <h2>What we do best</h2>
-        <p>From burst pipes to premium boilers — we’ve got you covered.</p>
-      </header>
-      <div class="grid-3">
-        <article class="card" data-animate="fade-up">
-          <h3>Emergency Plumber</h3>
-          <p>Rapid response for leaks, burst pipes, blocked drains, and heating failures — 24 hours a day.</p>
-          <a class="link" href="services.html#emergency">Learn more</a>
-        </article>
-        <article class="card" data-animate="fade-up" data-delay="100">
-          <h3>Boiler Installs & Service</h3>
-          <p>Efficient, guaranteed installs. Annual servicing to keep your boiler safe and bills low.</p>
-          <a class="link" href="services.html#boilers">Learn more</a>
-        </article>
-        <article class="card" data-animate="fade-up" data-delay="200">
-          <h3>Bathrooms & Upgrades</h3>
-          <p>Design to installation — premium bathrooms, tiling, fixtures, and smart heating controls.</p>
-          <a class="link" href="services.html#bathrooms">Learn more</a>
-        </article>
-      </div>
-            </div> <!-- end .grid-3 -->
+<!-- SERVICES -->
+<section class="cards container" style="padding-bottom:1.25rem; margin-bottom:0;">
+  <header class="section-head">
+    <h2>What we do best</h2>
+    <p>From burst pipes to premium boilers — we’ve got you covered.</p>
+  </header>
 
-      <!-- MINI STRIP: why choose us + quick CTA -->
-      <div style="margin-top:1rem; display:grid; grid-template-columns:repeat(3,1fr); gap:12px;">
-        <div class="card" style="padding:1rem;">
-          <strong>Up-front pricing</strong>
-          <p style="margin:.35rem 0 0; opacity:.8;">No hidden fees. Clear quotes before work begins.</p>
-        </div>
-        <div class="card" style="padding:1rem;">
-          <strong>Same-day availability</strong>
-          <p style="margin:.35rem 0 0; opacity:.8;">Rapid response across Leicester & Leicestershire.</p>
-        </div>
-        <div class="card" style="padding:1rem;">
-          <strong>Gas Safe engineers</strong>
-          <p style="margin:.35rem 0 0; opacity:.8;">Boilers serviced and installed by registered pros.</p>
-        </div>
-      </div>
+  <div class="grid-3">
+    <article class="card" data-animate="fade-up">
+      <h3>Emergency Plumber</h3>
+      <p>Rapid response for leaks, burst pipes, blocked drains, and heating failures — 24 hours a day.</p>
+      <a class="link" href="services.html#emergency">Learn more</a>
+    </article>
+    <article class="card" data-animate="fade-up" data-delay="100">
+      <h3>Boiler Installs & Service</h3>
+      <p>Efficient, guaranteed installs. Annual servicing to keep your boiler safe and bills low.</p>
+      <a class="link" href="services.html#boilers">Learn more</a>
+    </article>
+    <article class="card" data-animate="fade-up" data-delay="200">
+      <h3>Bathrooms & Upgrades</h3>
+      <p>Design to installation — premium bathrooms, tiling, fixtures, and smart heating controls.</p>
+      <a class="link" href="services.html#bathrooms">Learn more</a>
+    </article>
+  </div>
 
-      <div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
-        <a class="btn btn-lg" href="#" id="bookNowServices">Book a visit</a>
-        <a class="btn btn-lg btn-ghost" href="#quote">Get a quick quote</a>
-      </div>
+  <!-- WHY CHOOSE US mini strip -->
+  <div style="margin-top:1rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
+    <div class="card" style="padding:1rem;">
+      <strong>Up-front pricing</strong>
+      <p style="margin:.35rem 0 0; opacity:.8;">No hidden fees. Clear quotes before work begins.</p>
+    </div>
+    <div class="card" style="padding:1rem;">
+      <strong>Same-day availability</strong>
+      <p style="margin:.35rem 0 0; opacity:.8;">Rapid response across Leicester & Leicestershire.</p>
+    </div>
+    <div class="card" style="padding:1rem;">
+      <strong>Gas Safe engineers</strong>
+      <p style="margin:.35rem 0 0; opacity:.8;">Boilers serviced and installed by registered pros.</p>
+    </div>
+  </div>
 
-      <p class="tiny" style="margin-top:.75rem; opacity:.8;">
-        Serving Leicester, Oadby, Wigston, Evington, Braunstone, Birstall & Glenfield.
-      </p>
-    </section>
-<!-- IMAGE BREAK -->
-<section class="image-break" style="margin:2rem 0 1rem;">
-  <img src="assets/service-maintenance-worker-repairing.jpg" 
-       alt="Professional plumber fixing a sink in a modern kitchen"
-       style="width:100%; height:auto; border-radius:12px; display:block; max-height:440px; object-fit:cover; box-shadow:0 4px 20px rgba(0,0,0,0.2);">
+  <!-- inline CTA row -->
+  <div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
+    <a class="btn btn-lg" href="#" id="bookNowServices">Book a visit</a>
+    <a class="btn btn-lg btn-ghost" href="#quote">Get a quick quote</a>
+  </div>
+
+  <p class="tiny" style="margin-top:.75rem; opacity:.8;">
+    Serving Leicester, Oadby, Wigston, Evington, Braunstone, Birstall & Glenfield.
+  </p>
+</section>
+
+<!-- IMAGE BREAK (tight, neat) -->
+<section class="image-break" style="margin:1.25rem 0 .75rem;">
+  <div class="container" style="overflow:hidden; border-radius:12px;">
+    <img
+      src="assets/service-maintenance-worker-repairing.jpg"
+      alt="Professional plumber fixing sink under counter"
+      loading="lazy" decoding="async"
+      style="width:100%; height:380px; display:block; object-fit:cover; object-position:55% 50%;">
+  </div>
 </section>
     <!-- REVIEWS -->
 <section class="reviews" style="padding:1.5rem 0 1rem; margin:0;">
@@ -363,6 +369,7 @@ document.addEventListener('click', function(e){
 </script>
 </body>
 </html>
+
 
 
 
