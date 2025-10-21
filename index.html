@@ -139,7 +139,7 @@ nav a[href="contact.html"].btn:hover {
           <li><a href="services.html">Services</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a class="btn btn-sm" href="#" btn.id = 'bookFab'; id="bookNowNav">Book now</a></li>
+          <li><a class="btn btn-sm" href="#" id="bookNowNav">Book now</a></li>
           <li>
             <a class="btn btn-sm btn-ghost"
                href="https://wa.me/441161234567?text=Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with..."
@@ -363,29 +363,25 @@ nav a[href="contact.html"].btn:hover {
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-  <!-- Floating “Book now” (desktop only) (kept) -->
-  <script>
-  (function(){
-    if (window.innerWidth < 768) return; // hide on mobile
-    const btn = document.createElement('a');
-    btn.href = '#';
-    btn.textContent = 'Book now';
-    btn.onclick = function(){
-     Calendly.initPopupWidget({
-  url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit'
-});
-      return false;
-    };
-    Object.assign(btn.style, {
-      position:'fixed', left:'18px', bottom:'18px',
-      padding:'12px 16px', borderRadius:'999px',
-      background:'#0ea5e9', color:'#fff', fontWeight:'700',
-      boxShadow:'0 6px 16px rgba(0,0,0,.15)', zIndex:9999,
-      textDecoration:'none', fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
-    });
-    document.body.appendChild(btn);
-  })();
-  </script>
+<!-- Floating “Book now” (desktop only) -->
+<script>
+(function(){
+  if (window.innerWidth < 768) return; // hide on mobile
+  const btn = document.createElement('a');
+  btn.id = 'bookFab';                 // <-- important: so the chooser can catch it
+  btn.href = '#';
+  btn.textContent = 'Book now';
+  // no onclick here — the chooser below will handle the click
+  Object.assign(btn.style, {
+    position:'fixed', left:'18px', bottom:'18px',
+    padding:'12px 16px', borderRadius:'999px',
+    background:'#0ea5e9', color:'#fff', fontWeight:'700',
+    boxShadow:'0 6px 16px rgba(0,0,0,.15)', zIndex:9999,
+    textDecoration:'none', fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
+  });
+  document.body.appendChild(btn);
+})();
+</script>
 
 <!-- Floating WhatsApp button (LEFT, above Book now) -->
 <script>
@@ -546,71 +542,98 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
-<!-- Book-now chooser: Boiler service / Request quote / Emergency call -->
-<!-- Book-now chooser: only for floating bottom-left button -->
+<!-- Book-now chooser: Boiler service / Request quote / Emergency call (for ALL Book buttons) -->
 <script>
 (function(){
-  const BOOKING_URL = 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=site&utm_medium=fab&utm_campaign=boiler_service';
+  // Calendly event for Boiler Service (use your exact event link)
+  const BOOKING_URL = 'https://calendly.com/aaronjhayto/boiler-service?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=website&utm_medium=chooser&utm_campaign=boiler_service';
   const TEL = '+441161234567';
 
   function ensureCalendly(cb){
     if (window.Calendly && Calendly.initPopupWidget) return cb();
-    const s = document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]');
-    if (s) { s.addEventListener('load', cb); return; }
-    const scr = document.createElement('script');
-    scr.src = 'https://assets.calendly.com/assets/external/widget.js';
-    scr.async = true;
-    scr.onload = cb;
-    document.head.appendChild(scr);
+    const existing = document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]');
+    if (existing) { existing.addEventListener('load', cb); return; }
+    const s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true;
+    s.onload = cb;
+    document.head.appendChild(s);
   }
 
-  function openChooser(){
+  function buildChooser(){
     let o = document.getElementById('book-chooser');
-    if (!o){
-      o = document.createElement('div');
-      o.id = 'book-chooser';
-      o.innerHTML = `
-        <div class="bc-backdrop" data-close></div>
-        <div class="bc-panel" role="dialog" aria-modal="true" aria-label="Choose booking option">
-          <h3>What do you need today?</h3>
-          <button class="bc-btn" data-action="service">🔧 Boiler service (book instantly)</button>
-          <button class="bc-btn bc-secondary" data-action="quote">🧾 Something else (request a quote)</button>
-          <button class="bc-btn bc-quiet" data-action="call">💦 Emergency leak / no heat (call now)</button>
-          <button class="bc-close" data-close aria-label="Close">×</button>
-        </div>`;
-      document.body.appendChild(o);
+    if (o) return o;
+    o = document.createElement('div');
+    o.id = 'book-chooser';
+    o.innerHTML = `
+      <div class="bc-backdrop" data-close></div>
+      <div class="bc-panel" role="dialog" aria-modal="true" aria-label="Choose booking option">
+        <h3>What do you need today?</h3>
+        <button class="bc-btn" data-action="service">🔧 Boiler service (book instantly)</button>
+        <button class="bc-btn bc-secondary" data-action="quote">🧾 Something else (request a quote)</button>
+        <button class="bc-btn bc-quiet" data-action="call">💦 Emergency leak / no heat (call now)</button>
+        <button class="bc-close" data-close aria-label="Close">×</button>
+      </div>`;
+    document.body.appendChild(o);
 
-      o.addEventListener('click', e=>{
-        if (e.target.hasAttribute('data-close')) o.classList.remove('show');
-      });
+    // close handlers
+    o.addEventListener('click', (e)=>{
+      if (e.target.hasAttribute('data-close')) o.classList.remove('show');
+    });
 
-      o.querySelector('[data-action="service"]').addEventListener('click', ()=>{
-        ensureCalendly(()=> Calendly.initPopupWidget({ url: BOOKING_URL }));
-        o.classList.remove('show');
-      });
-      o.querySelector('[data-action="quote"]').addEventListener('click', ()=>{
-        o.classList.remove('show');
-        const target = document.getElementById('quote');
-        if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
-      });
-      o.querySelector('[data-action="call"]').addEventListener('click', ()=>{
-        o.classList.remove('show');
-        window.location.href = 'tel:' + TEL;
-      });
-    }
-    o.classList.add('show');
+    // actions
+    o.querySelector('[data-action="service"]').addEventListener('click', ()=>{
+      ensureCalendly(()=> Calendly.initPopupWidget({ url: BOOKING_URL }));
+      o.classList.remove('show');
+    });
+    o.querySelector('[data-action="quote"]').addEventListener('click', ()=>{
+      o.classList.remove('show');
+      const target = document.getElementById('quote');
+      if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+    o.querySelector('[data-action="call"]').addEventListener('click', ()=>{
+      o.classList.remove('show');
+      window.location.href = 'tel:' + TEL;
+    });
+
+    return o;
   }
 
-  document.addEventListener('click', e=>{
-    const el = e.target.closest('#bookFab'); // ONLY the floating button
-    if (!el) return;
+  // Open chooser when *any* Book button is clicked
+  document.addEventListener('click', function(e){
+    const trigger = e.target.closest('#bookFab, #bookNowNav, #bookNowServices');
+    if (!trigger) return;
     e.preventDefault();
-    openChooser();
+    const chooser = buildChooser();
+    chooser.classList.add('show');
   });
 })();
 </script>
 
 <style>
+/* Chooser styles */
+#book-chooser{position:fixed;inset:0;display:none;z-index:100000;}
+#book-chooser.show{display:block;}
+#book-chooser .bc-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);}
+#book-chooser .bc-panel{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(520px,92vw);background:#0b1220;color:#fff;
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+#book-chooser h3{margin:0 0 12px;font-size:1.1rem}
+#book-chooser .bc-btn{
+  width:100%;text-align:left;padding:12px 14px;margin:8px 0;
+  border-radius:12px;border:1px solid #1b2a3c;background:#0d1526;color:#fff;font-weight:700;
+}
+#book-chooser .bc-secondary{background:#0b1323;}
+#book-chooser .bc-quiet{background:#0a1120;border-style:dashed;}
+#book-chooser .bc-btn:focus{outline:none;box-shadow:0 0 0 3px rgba(16,165,233,.35);}
+#book-chooser .bc-close{
+  position:absolute;top:6px;right:10px;background:transparent;border:0;color:#bcd;font-size:28px;line-height:1;cursor:pointer;
+}
+@media (max-width:480px){#book-chooser .bc-panel{width:94vw;padding:16px}}
+</style>
 /* Simple modal styling */
 #book-chooser{position:fixed;inset:0;display:none;z-index:100000;}
 #book-chooser.show{display:block;}
@@ -636,6 +659,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </style>
 </body>
 </html>
+
 
 
 
