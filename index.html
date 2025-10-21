@@ -371,9 +371,9 @@ nav a[href="contact.html"].btn:hover {
     btn.href = '#';
     btn.textContent = 'Book now';
     btn.onclick = function(){
-      Calendly.initPopupWidget({
-        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=demo&utm_medium=site&utm_campaign=floating_cta'
-      });
+     Calendly.initPopupWidget({
+  url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit'
+});
       return false;
     };
     Object.assign(btn.style, {
@@ -636,6 +636,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </style>
 </body>
 </html>
+
 
 
 
