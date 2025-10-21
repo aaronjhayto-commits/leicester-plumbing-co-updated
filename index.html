@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#0ea5e9">
   <!-- DEMO: prevent indexing -->
   <meta name="robots" content="noindex, nofollow">
-  <!-- Canonical (optional, fine to leave in for a stable demo URL) -->
   <link rel="canonical" href="https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/">
 
   <!-- Favicon -->
@@ -18,11 +17,11 @@
   <link rel="preload" as="image" href="assets/hero.jpg?v=8">
 
   <!-- Styles (cache-busted) -->
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=12" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- ── NEW: Social sharing (OG/Twitter) ───────────────────────── -->
+  <!-- Social sharing -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Leicester Plumbing Co — 24/7 Plumbers & Boiler Experts">
   <meta property="og:description" content="Emergency plumbers in Leicester. Boilers, leaks, bathrooms, heating. Fixed, fair pricing.">
@@ -33,40 +32,17 @@
   <meta name="twitter:description" content="Emergency plumbers in Leicester. Boilers, leaks, bathrooms, heating. Fixed, fair pricing.">
   <meta name="twitter:image" content="https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/assets/og-cover.jpg">
 
- <!-- Small overrides + image fade-in -->
-<style>
-  .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
-  /* Tighten Services spacing */
-  .cards.container{ padding-top:.75rem !important; padding-bottom:.75rem !important; margin:0 !important; }
-  .cards .section-head{ margin-bottom:.5rem !important; }
-  .cards .grid-3{ gap:12px !important; margin:0 !important; }
-
-  /* Mid-page image fade-in */
-  .fade-in{opacity:0; transform:translateY(8px); transition:opacity .6s ease, transform .6s ease;}
-  .fade-in.is-visible{opacity:1; transform:none;}
-
-  /* Header size/cta/icon bump */
-  .site-header .container.row { min-height: 84px; }
-  .site-header .brand img { width: 44px; height: 44px; }
-  .site-header .brand span { font-size: 1.08rem; font-weight: 700; }
-  .site-header .nav .btn.btn-sm { padding: 10px 14px; }
-  .site-header .nav .btn.btn-sm svg { width: 20px; height: 20px; }
-  @media (min-width: 900px){
-    .site-header .container.row { min-height: 92px; }
-    .site-header .brand span { font-size: 1.12rem; }
-  }
-</style>
+  <!-- Small overrides + image fade-in (CLEAN + CLOSED) -->
+  <style>
     .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
     /* Tighten Services spacing */
     .cards.container{ padding-top:.75rem !important; padding-bottom:.75rem !important; margin:0 !important; }
     .cards .section-head{ margin-bottom:.5rem !important; }
     .cards .grid-3{ gap:12px !important; margin:0 !important; }
-
     /* Mid-page image fade-in */
     .fade-in{opacity:0; transform:translateY(8px); transition:opacity .6s ease, transform .6s ease;}
     .fade-in.is-visible{opacity:1; transform:none;}
-
-    /* ── NEW: Header size/cta/icon bump (no structural changes) ── */
+    /* Header size/cta/icon bump */
     .site-header .container.row { min-height: 84px; }
     .site-header .brand img { width: 44px; height: 44px; }
     .site-header .brand span { font-size: 1.08rem; font-weight: 700; }
@@ -76,24 +52,24 @@
       .site-header .container.row { min-height: 92px; }
       .site-header .brand span { font-size: 1.12rem; }
     }
+    /* Force Contact button to stay dark across all pages */
+    .site-header .nav a[href*="contact.html"].btn,
+    .site-header .nav a[href*="contact.html"].btn-sm,
+    header.site-header nav ul li a[href*="contact.html"].btn,
+    header.site-header nav ul li a[href*="contact.html"].btn-sm {
+      background:#0b1220 !important;   /* match header */
+      color:#fff !important;
+      border:1px solid rgba(255,255,255,.15) !important;
+      box-shadow:none !important;
+    }
+    .site-header .nav a[href*="contact.html"].btn:hover,
+    .site-header .nav a[href*="contact.html"].btn-sm:hover {
+      background:#0ea5e9 !important;
+      color:#fff !important;
+    }
   </style>
-<style>
-<style>
-/* Force Contact button to stay dark across all pages */
-header.site-header nav ul li a[href*="contact.html"].btn,
-header.site-header nav ul li a[href*="contact.html"].btn-sm {
-  background-color: #0b1220 !important;  /* same as header background */
-  color: #ffffff !important;
-  border: 1px solid rgba(255,255,255,.15) !important;
-  box-shadow: none !important;
-}
-header.site-header nav ul li a[href*="contact.html"].btn:hover,
-header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
-  background-color: #0ea5e9 !important;
-  color: #ffffff !important;
-}
-</style>
-  <!-- Business Schema (kept) -->
+
+  <!-- Business Schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -103,13 +79,7 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
     "image":"https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/assets/og-cover.jpg",
     "telephone":"+44 116 123 4567",
     "email":"bookings@leicesterplumbing.example",
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Leicester",
-      "addressRegion":"Leicestershire",
-      "postalCode":"LE1",
-      "addressCountry":"GB"
-    },
+    "address":{"@type":"PostalAddress","addressLocality":"Leicester","addressRegion":"Leicestershire","postalCode":"LE1","addressCountry":"GB"},
     "areaServed":"Leicester & Leicestershire",
     "openingHoursSpecification":[
       {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"00:00","closes":"23:59"},
@@ -119,18 +89,13 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
     "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"218"},
     "potentialAction":{
       "@type":"ReserveAction",
-      "target":{
-        "@type":"EntryPoint",
-        "urlTemplate":"https://calendly.com/aaronjhayto/book-a-plumber-visit",
-        "inLanguage":"en-GB",
-        "actionPlatform":["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"]
-      },
+      "target":{"@type":"EntryPoint","urlTemplate":"https://calendly.com/aaronjhayto/boiler-service","inLanguage":"en-GB","actionPlatform":["http://schema.org/DesktopWebPlatform","http://schema.org/MobileWebPlatform"]},
       "result":{"@type":"Reservation","name":"Plumber visit booking"}
     }
   }
   </script>
 
-  <!-- FAQPage Schema (kept) -->
+  <!-- FAQPage Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -209,7 +174,6 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
         <p style="margin:.35rem 0 0;">From burst pipes to premium boilers — we’ve got you covered.</p>
       </header>
 
-      <!-- THE THREE SERVICE CARDS (forced visible) -->
       <div class="grid-3" style="gap:12px; margin:0;">
         <article class="card" data-animate="fade-up" style="padding:1rem; opacity:1; transform:none;">
           <h3>Emergency Plumber</h3>
@@ -230,7 +194,6 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
         </article>
       </div>
 
-      <!-- WHY CHOOSE US mini strip -->
       <div style="margin-top:1rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px;">
         <div class="card" style="padding:1rem;">
           <strong>Up-front pricing</strong>
@@ -246,7 +209,6 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
         </div>
       </div>
 
-      <!-- inline CTA row -->
       <div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap;">
         <a class="btn btn-lg" href="#" id="bookNowServices">Book a visit</a>
         <a class="btn btn-lg btn-ghost" href="#quote">Get a quick quote</a>
@@ -257,7 +219,7 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
       </p>
     </section>
 
-    <!-- IMAGE BREAK (tight, neat + fade-in) -->
+    <!-- IMAGE BREAK -->
     <section class="image-break" style="margin:1rem 0 .75rem;">
       <div class="container" style="overflow:hidden; border-radius:12px;">
         <img
@@ -278,20 +240,17 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
         </header>
 
         <div class="grid-3" style="gap:1rem;">
-          <blockquote class="review"
-            style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
+          <blockquote class="review" style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
             <p style="margin:0 0 .5rem;">“Turned up within the hour and fixed a major leak. Price exactly as quoted.”</p>
             <cite style="opacity:.8;">— Amy R.</cite>
           </blockquote>
 
-          <blockquote class="review"
-            style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
+          <blockquote class="review" style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
             <p style="margin:0 0 .5rem;">“New boiler installed next-day. Clean, tidy, and super professional.”</p>
             <cite style="opacity:.8;">— Darren W.</cite>
           </blockquote>
 
-          <blockquote class="review"
-            style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
+          <blockquote class="review" style="background:#0b1220; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:1rem 1.25rem; opacity:1; transform:none;">
             <p style="margin:0 0 .5rem;">“The only plumbers I trust for my rentals. 10/10 communication.”</p>
             <cite style="opacity:.8;">— Priya S. (Landlord)</cite>
           </blockquote>
@@ -334,17 +293,13 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
         </div>
 
         <form class="card form" action="https://formspree.io/f/xqayjvwo" method="POST" novalidate>
-          <!-- Page marker -->
           <input type="hidden" name="page" value="Home">
-          <!-- Honeypot anti-spam -->
-          <input type="text" name="company" autocomplete="off" tabindex="-1"
-                 style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
-
+          <!-- Honeypot -->
+          <input type="text" name="company" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
           <label><span>Name</span><input name="name" required></label>
           <label><span>Email</span><input type="email" name="email" required></label>
           <label><span>Phone</span><input name="phone" required></label>
           <label><span>How can we help?</span><textarea name="message" rows="5" required></textarea></label>
-
           <button class="btn btn-lg" type="submit">Request quote</button>
           <p class="form-foot">Or call us now: <a href="tel:+441161234567">0116 123 4567</a></p>
         </form>
@@ -374,82 +329,56 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
     </div>
   </footer>
 
-  <!-- Chatbase chatbot (kept) -->
+  <!-- Chatbase -->
   <script>
-    window.embeddedChatbotConfig = {
-      chatbotId: "rL8EPf39llgdwMS-JB0j_",
-      domain: "www.chatbase.co"
-    };
+    window.embeddedChatbotConfig = { chatbotId: "rL8EPf39llgdwMS-JB0j_", domain: "www.chatbase.co" };
   </script>
   <script defer src="https://www.chatbase.co/embed.min.js"></script>
 
-  <!-- Calendly popup (kept) -->
+  <!-- Calendly CSS/JS -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-<!-- Floating “Book now” (desktop only) -->
-<script>
-(function(){
-  if (window.innerWidth < 768) return; // hide on mobile
-  const btn = document.createElement('a');
-  btn.id = 'bookFab';                 // <-- important: so the chooser can catch it
-  btn.href = '#';
-  btn.textContent = 'Book now';
-  // no onclick here — the chooser below will handle the click
-  Object.assign(btn.style, {
-    position:'fixed', left:'18px', bottom:'18px',
-    padding:'12px 16px', borderRadius:'999px',
-    background:'#0ea5e9', color:'#fff', fontWeight:'700',
-    boxShadow:'0 6px 16px rgba(0,0,0,.15)', zIndex:9999,
-    textDecoration:'none', fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
-  });
-  document.body.appendChild(btn);
-})();
-</script>
+  <!-- Floating “Book now” (desktop only, left) -->
+  <script>
+  (function(){
+    if (window.innerWidth < 768) return;
+    const btn = document.createElement('a');
+    btn.id = 'bookFab';
+    btn.href = '#';
+    btn.textContent = 'Book now';
+    Object.assign(btn.style, {
+      position:'fixed', left:'18px', bottom:'18px',
+      padding:'12px 16px', borderRadius:'999px',
+      background:'#0ea5e9', color:'#fff', fontWeight:'700',
+      boxShadow:'0 6px 16px rgba(0,0,0,.15)', zIndex:9999,
+      textDecoration:'none', fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
+    });
+    document.body.appendChild(btn);
+  })();
+  </script>
 
-<!-- Floating WhatsApp button (LEFT, above Book now) -->
-<script>
-(function(){
-  // 1) Remove any previous fixed-position WhatsApp floaters
-  document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
-    var s = window.getComputedStyle(a);
-    if (s.position === 'fixed') a.remove();
-  });
+  <!-- Floating WhatsApp button (LEFT, above Book now) -->
+  <script>
+  (function(){
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(a){
+      var s = window.getComputedStyle(a); if (s.position === 'fixed') a.remove();
+    });
+    var wa = document.createElement('a');
+    wa.href = 'https://wa.me/441161234567?text=Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with...';
+    wa.target = '_blank'; wa.rel = 'noopener'; wa.setAttribute('aria-label','Open WhatsApp chat'); wa.textContent = 'WhatsApp';
+    Object.assign(wa.style, {
+      position:'fixed', left:'18px', bottom:'90px',
+      zIndex:9998, padding:'12px 16px', borderRadius:'999px',
+      background:'#25D366', color:'#000', fontWeight:'700',
+      textDecoration:'none', boxShadow:'0 6px 16px rgba(0,0,0,.15)',
+      fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
+    });
+    if (window.innerWidth >= 380) document.body.appendChild(wa);
+  })();
+  </script>
 
-  // 2) Create the new left-side floater
-  var waNumber = '441161234567';
-  var prefill  = 'Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with...';
-
-  var wa = document.createElement('a');
-  wa.href = 'https://wa.me/' + waNumber + '?text=' + prefill;
-  wa.target = '_blank';
-  wa.rel = 'noopener';
-  wa.setAttribute('aria-label','Open WhatsApp chat');
-  wa.textContent = 'WhatsApp';
-
-  Object.assign(wa.style, {
-    position: 'fixed',
-    left: '18px',
-    right: 'auto',          // <-- force off the right edge if something set it
-    bottom: '90px',         // sits above the Book now button at bottom:18px
-    zIndex: 9998,
-    padding: '12px 16px',
-    borderRadius: '999px',
-    background: '#25D366',
-    color: '#000',
-    fontWeight: '700',
-    textDecoration: 'none',
-    boxShadow: '0 6px 16px rgba(0,0,0,.15)',
-    fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
-  });
-
-  if (window.innerWidth >= 380) document.body.appendChild(wa);
-})();
-</script>
-
-
-
-  <!-- Fade-in observer for mid image (kept) -->
+  <!-- Fade-in observer -->
   <script>
   document.addEventListener('DOMContentLoaded', function(){
     var el = document.querySelector('.fade-in');
@@ -463,239 +392,124 @@ header.site-header nav ul li a[href*="contact.html"].btn-sm:hover {
 
   <!-- Year stamp -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<!-- Mobile menu: independent full-screen panel (ignores existing nav CSS) -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const header  = document.querySelector('.site-header');
-  const burger  = document.querySelector('.hamburger');
-  const source  = document.getElementById('nav-menu'); // your existing <ul>
 
-  if (!header || !burger || !source) return;
+  <!-- Mobile menu: independent full-screen panel -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const header  = document.querySelector('.site-header');
+    const burger  = document.querySelector('.hamburger');
+    const source  = document.getElementById('nav-menu');
+    if (!header || !burger || !source) return;
 
-  // Build an independent panel so no existing CSS can push it off-screen
-  const panel = document.createElement('div');
-  panel.id = 'mobileMenuPanel';
-  panel.setAttribute('role','dialog');
-  panel.setAttribute('aria-modal','true');
-  panel.style.cssText = [
-    'position:fixed',
-    'inset:0',
-    'background:#0b1220',
-    'display:none',
-    'z-index:100000',      // above everything
-    'overflow:auto',
-    'padding:16px'
-  ].join(';');
+    const panel = document.createElement('div');
+    panel.id = 'mobileMenuPanel';
+    panel.setAttribute('role','dialog'); panel.setAttribute('aria-modal','true');
+    panel.style.cssText = 'position:fixed;inset:0;background:#0b1220;display:none;z-index:100000;overflow:auto;padding:16px';
 
-  // Backdrop click area (behind the list)
-  const backdrop = document.createElement('div');
-  backdrop.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:-1';
+    const backdrop = document.createElement('div');
+    backdrop.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:-1';
 
-  // Content wrapper - we’ll set top padding = header height each open
-  const wrap = document.createElement('div');
-  wrap.style.cssText = 'max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:12px';
+    const wrap = document.createElement('div');
+    wrap.style.cssText = 'max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:12px';
 
-  // Clone your existing <li> items so links stay identical
-  const list = source.cloneNode(true);
-  list.id = 'nav-menu-clone';
-  list.removeAttribute('style');            // clear any inline display:none
-  list.style.cssText = [
-    'list-style:none',
-    'margin:0',
-    'padding:0',
-    'display:flex',
-    'flex-direction:column',
-    'gap:12px'
-  ].join(';');
-
-  // Make items finger-friendly
-  list.querySelectorAll('a').forEach(a=>{
-    a.style.cssText = 'display:block;padding:14px 12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-decoration:none;color:#fff;background:#0d1526';
-  });
-
-  wrap.appendChild(list);
-  panel.appendChild(backdrop);
-  panel.appendChild(wrap);
-  document.body.appendChild(panel);
-
-  function headerH(){ return (header.getBoundingClientRect().height || 84); }
-
-  function openMenu(){
-    // Place content below header no matter where you are
-    panel.style.paddingTop = (headerH() + 12) + 'px';
-    burger.classList.add('is-active');
-    panel.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMenu(){
-    burger.classList.remove('is-active');
-    panel.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  burger.addEventListener('click', function(){
-    const open = panel.style.display === 'block';
-    open ? closeMenu() : openMenu();
-  });
-
-  // Tap outside closes
-  backdrop.addEventListener('click', closeMenu);
-
-  // Close after tapping a link (nice on mobile)
-  list.addEventListener('click', function(e){
-    if (e.target.closest('a')) closeMenu();
-  });
-
-  // Keep panel aligned on rotate/resize
-  window.addEventListener('resize', function(){
-    if (panel.style.display === 'block') panel.style.paddingTop = (headerH() + 12) + 'px';
-  });
-
-  /* Optional: simple hamburger animation without touching your CSS */
-  const bars = burger.querySelectorAll('span');
-  if (bars.length === 3) {
-    // add minimal inline styles if not already present
-    bars.forEach(b=>{ b.style.cssText = 'display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:all .25s'; });
-    burger.addEventListener('click', function(){
-      const active = burger.classList.contains('is-active');
-      bars[0].style.transform = active ? '' : 'rotate(45deg) translateY(6px)';
-      bars[1].style.opacity   = active ? '1' : '0';
-      bars[2].style.transform = active ? '' : 'rotate(-45deg) translateY(-6px)';
-    });
-  }
-});
-</script>
-<!-- Book-now chooser: Boiler service / Request quote / Emergency call (for ALL Book buttons) -->
-<script>
-(function(){
-  // Calendly event for Boiler Service (use your exact event link)
-  const BOOKING_URL = 'https://calendly.com/aaronjhayto/book-a-plumber-visit';
-  const TEL = '+441161234567';
-
-  function ensureCalendly(cb){
-    if (window.Calendly && Calendly.initPopupWidget) return cb();
-    const existing = document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]');
-    if (existing) { existing.addEventListener('load', cb); return; }
-    const s = document.createElement('script');
-    s.src = 'https://assets.calendly.com/assets/external/widget.js';
-    s.async = true;
-    s.onload = cb;
-    document.head.appendChild(s);
-  }
-
-  function buildChooser(){
-    let o = document.getElementById('book-chooser');
-    if (o) return o;
-    o = document.createElement('div');
-    o.id = 'book-chooser';
-    o.innerHTML = `
-      <div class="bc-backdrop" data-close></div>
-      <div class="bc-panel" role="dialog" aria-modal="true" aria-label="Choose booking option">
-        <h3>What do you need today?</h3>
-        <button class="bc-btn" data-action="service">🔧 Boiler service (book instantly)</button>
-        <button class="bc-btn bc-secondary" data-action="quote">🧾 Something else (request a quote)</button>
-        <button class="bc-btn bc-quiet" data-action="call">💦 Emergency leak / no heat (call now)</button>
-        <button class="bc-close" data-close aria-label="Close">×</button>
-      </div>`;
-    document.body.appendChild(o);
-
-    // close handlers
-    o.addEventListener('click', (e)=>{
-      if (e.target.hasAttribute('data-close')) o.classList.remove('show');
+    const list = source.cloneNode(true);
+    list.id = 'nav-menu-clone'; list.removeAttribute('style');
+    list.style.cssText = 'list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px';
+    list.querySelectorAll('a').forEach(a=>{
+      a.style.cssText = 'display:block;padding:14px 12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;text-decoration:none;color:#fff;background:#0d1526';
     });
 
-    // actions
-    o.querySelector('[data-action="service"]').addEventListener('click', ()=>{
-      ensureCalendly(()=> Calendly.initPopupWidget({ url: BOOKING_URL }));
-      o.classList.remove('show');
-    });
-    o.querySelector('[data-action="quote"]').addEventListener('click', ()=>{
-      o.classList.remove('show');
-      const target = document.getElementById('quote');
-      if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
-    });
-    o.querySelector('[data-action="call"]').addEventListener('click', ()=>{
-      o.classList.remove('show');
-      window.location.href = 'tel:' + TEL;
-    });
+    wrap.appendChild(list); panel.appendChild(backdrop); panel.appendChild(wrap); document.body.appendChild(panel);
 
-    return o;
-  }
+    function headerH(){ return (header.getBoundingClientRect().height || 84); }
+    function openMenu(){ panel.style.paddingTop = (headerH()+12)+'px'; burger.classList.add('is-active'); panel.style.display='block'; document.body.style.overflow='hidden'; }
+    function closeMenu(){ burger.classList.remove('is-active'); panel.style.display='none'; document.body.style.overflow=''; }
 
-  // Open chooser when *any* Book button is clicked
-  document.addEventListener('click', function(e){
-    const trigger = e.target.closest('#bookFab, #bookNowNav, #bookNowServices');
-    if (!trigger) return;
-    e.preventDefault();
-    const chooser = buildChooser();
-    chooser.classList.add('show');
+    burger.addEventListener('click', function(){ (panel.style.display==='block') ? closeMenu() : openMenu(); });
+    backdrop.addEventListener('click', closeMenu);
+    list.addEventListener('click', function(e){ if (e.target.closest('a')) closeMenu(); });
+    window.addEventListener('resize', function(){ if (panel.style.display==='block') panel.style.paddingTop = (headerH()+12)+'px'; });
+
+    const bars = burger.querySelectorAll('span');
+    if (bars.length === 3) {
+      bars.forEach(b=>{ b.style.cssText = 'display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:all .25s'; });
+      burger.addEventListener('click', function(){
+        const active = burger.classList.contains('is-active');
+        bars[0].style.transform = active ? '' : 'rotate(45deg) translateY(6px)';
+        bars[1].style.opacity   = active ? '1' : '0';
+        bars[2].style.transform = active ? '' : 'rotate(-45deg) translateY(-6px)';
+      });
+    }
   });
-})();
-</script>
+  </script>
 
-<style>
-/* Chooser styles */
-#book-chooser{position:fixed;inset:0;display:none;z-index:100000;}
-#book-chooser.show{display:block;}
-#book-chooser .bc-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);}
-#book-chooser .bc-panel{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:min(520px,92vw);background:#0b1220;color:#fff;
-  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;
-  box-shadow:0 20px 60px rgba(0,0,0,.45);
-}
-#book-chooser h3{margin:0 0 12px;font-size:1.1rem}
-#book-chooser .bc-btn{
-  width:100%;text-align:left;padding:12px 14px;margin:8px 0;
-  border-radius:12px;border:1px solid #1b2a3c;background:#0d1526;color:#fff;font-weight:700;
-}
-#book-chooser .bc-secondary{background:#0b1323;}
-#book-chooser .bc-quiet{background:#0a1120;border-style:dashed;}
-#book-chooser .bc-btn:focus{outline:none;box-shadow:0 0 0 3px rgba(16,165,233,.35);}
-#book-chooser .bc-close{
-  position:absolute;top:6px;right:10px;background:transparent;border:0;color:#bcd;font-size:28px;line-height:1;cursor:pointer;
-}
-@media (max-width:480px){#book-chooser .bc-panel{width:94vw;padding:16px}}
-</style>
-/* Simple modal styling */
-#book-chooser{position:fixed;inset:0;display:none;z-index:100000;}
-#book-chooser.show{display:block;}
-#book-chooser .bc-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);}
-#book-chooser .bc-panel{
-  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-  width:min(520px,92vw);background:#0b1220;color:#fff;
-  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;
-  box-shadow:0 20px 60px rgba(0,0,0,.45);
-}
-#book-chooser h3{margin:0 0 12px;font-size:1.1rem}
-#book-chooser .bc-btn{
-  width:100%;text-align:left;padding:12px 14px;margin:8px 0;
-  border-radius:12px;border:1px solid #1b2a3c;background:#0d1526;color:#fff;font-weight:700;
-}
-#book-chooser .bc-secondary{background:#0b1323;}
-#book-chooser .bc-quiet{background:#0a1120;border-style:dashed;}
-#book-chooser .bc-btn:focus{outline:none;box-shadow:0 0 0 3px rgba(16,165,233,.35);}
-#book-chooser .bc-close{
-  position:absolute;top:6px;right:10px;background:transparent;border:0;color:#bcd;font-size:28px;line-height:1;cursor:pointer;
-}
-@media (max-width:480px){#book-chooser .bc-panel{width:94vw;padding:16px}}
-</style>
+  <!-- Book-now chooser: Boiler service / Request quote / Emergency call -->
+  <script>
+  (function(){
+    const BOOKING_URL = 'https://calendly.com/aaronjhayto/boiler-service?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=website&utm_medium=chooser&utm_campaign=boiler_service';
+    const TEL = '+441161234567';
+
+    function ensureCalendly(cb){
+      if (window.Calendly && Calendly.initPopupWidget) return cb();
+      const existing = document.querySelector('script[src*="assets.calendly.com/assets/external/widget.js"]');
+      if (existing) { existing.addEventListener('load', cb); return; }
+      const s = document.createElement('script');
+      s.src = 'https://assets.calendly.com/assets/external/widget.js'; s.async = true; s.onload = cb;
+      document.head.appendChild(s);
+    }
+
+    function buildChooser(){
+      let o = document.getElementById('book-chooser');
+      if (o) return o;
+      o = document.createElement('div');
+      o.id = 'book-chooser';
+      o.innerHTML = `
+        <div class="bc-backdrop" data-close></div>
+        <div class="bc-panel" role="dialog" aria-modal="true" aria-label="Choose booking option">
+          <h3>What do you need today?</h3>
+          <button class="bc-btn" data-action="service">🔧 Boiler service (book instantly)</button>
+          <button class="bc-btn bc-secondary" data-action="quote">🧾 Something else (request a quote)</button>
+          <button class="bc-btn bc-quiet" data-action="call">💦 Emergency leak / no heat (call now)</button>
+          <button class="bc-close" data-close aria-label="Close">×</button>
+        </div>`;
+      document.body.appendChild(o);
+      o.addEventListener('click', (e)=>{ if (e.target.hasAttribute('data-close')) o.classList.remove('show'); });
+      o.querySelector('[data-action="service"]').addEventListener('click', ()=>{ ensureCalendly(()=> Calendly.initPopupWidget({ url: BOOKING_URL })); o.classList.remove('show'); });
+      o.querySelector('[data-action="quote"]').addEventListener('click', ()=>{ o.classList.remove('show'); const target = document.getElementById('quote'); if (target) target.scrollIntoView({ behavior:'smooth', block:'start' }); });
+      o.querySelector('[data-action="call"]').addEventListener('click', ()=>{ o.classList.remove('show'); window.location.href = 'tel:' + TEL; });
+      return o;
+    }
+
+    document.addEventListener('click', function(e){
+      const trigger = e.target.closest('#bookFab, #bookNowNav, #bookNowServices');
+      if (!trigger) return;
+      e.preventDefault();
+      buildChooser().classList.add('show');
+    });
+  })();
+  </script>
+
+  <!-- Chooser styles (single, clean) -->
+  <style>
+    #book-chooser{position:fixed;inset:0;display:none;z-index:100000;}
+    #book-chooser.show{display:block;}
+    #book-chooser .bc-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);}
+    #book-chooser .bc-panel{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      width:min(520px,92vw);background:#0b1220;color:#fff;
+      border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+    }
+    #book-chooser h3{margin:0 0 12px;font-size:1.1rem}
+    #book-chooser .bc-btn{
+      width:100%;text-align:left;padding:12px 14px;margin:8px 0;
+      border-radius:12px;border:1px solid #1b2a3c;background:#0d1526;color:#fff;font-weight:700;
+    }
+    #book-chooser .bc-secondary{background:#0b1323;}
+    #book-chooser .bc-quiet{background:#0a1120;border-style:dashed;}
+    #book-chooser .bc-btn:focus{outline:none;box-shadow:0 0 0 3px rgba(16,165,233,.35);}
+    #book-chooser .bc-close{position:absolute;top:6px;right:10px;background:transparent;border:0;color:#bcd;font-size:28px;line-height:1;cursor:pointer;}
+    @media (max-width:480px){#book-chooser .bc-panel{width:94vw;padding:16px}}
+  </style>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
