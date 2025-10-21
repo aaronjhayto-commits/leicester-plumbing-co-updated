@@ -22,6 +22,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- ── NEW: Social sharing (OG/Twitter) ───────────────────────── -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Leicester Plumbing Co — 24/7 Plumbers & Boiler Experts">
+  <meta property="og:description" content="Emergency plumbers in Leicester. Boilers, leaks, bathrooms, heating. Fixed, fair pricing.">
+  <meta property="og:url" content="https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/">
+  <meta property="og:image" content="https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/assets/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Leicester Plumbing Co — 24/7 Plumbers & Boiler Experts">
+  <meta name="twitter:description" content="Emergency plumbers in Leicester. Boilers, leaks, bathrooms, heating. Fixed, fair pricing.">
+  <meta name="twitter:image" content="https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/assets/og-cover.jpg">
+
   <!-- Small overrides + image fade-in -->
   <style>
     .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
@@ -33,9 +44,20 @@
     /* Mid-page image fade-in */
     .fade-in{opacity:0; transform:translateY(8px); transition:opacity .6s ease, transform .6s ease;}
     .fade-in.is-visible{opacity:1; transform:none;}
+
+    /* ── NEW: Header size/cta/icon bump (no structural changes) ── */
+    .site-header .container.row { min-height: 84px; }
+    .site-header .brand img { width: 44px; height: 44px; }
+    .site-header .brand span { font-size: 1.08rem; font-weight: 700; }
+    .site-header .nav .btn.btn-sm { padding: 10px 14px; }
+    .site-header .nav .btn.btn-sm svg { width: 20px; height: 20px; }
+    @media (min-width: 900px){
+      .site-header .container.row { min-height: 92px; }
+      .site-header .brand span { font-size: 1.12rem; }
+    }
   </style>
 
-  <!-- Business Schema -->
+  <!-- Business Schema (kept) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -72,32 +94,16 @@
   }
   </script>
 
-  <!-- FAQPage Schema (rich results) -->
+  <!-- FAQPage Schema (kept) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Do you charge a callout fee?",
-        "acceptedAnswer": {"@type":"Answer","text":"We quote up-front. No hidden surprises."}
-      },
-      {
-        "@type": "Question",
-        "name": "How soon can you attend?",
-        "acceptedAnswer": {"@type":"Answer","text":"Same-day in Leicester. 24/7 emergencies."}
-      },
-      {
-        "@type": "Question",
-        "name": "Are you Gas Safe?",
-        "acceptedAnswer": {"@type":"Answer","text":"Yes — all boiler work by registered engineers."}
-      },
-      {
-        "@type": "Question",
-        "name": "Which areas do you cover?",
-        "acceptedAnswer": {"@type":"Answer","text":"Leicester & Leicestershire."}
-      }
+      { "@type": "Question", "name": "Do you charge a callout fee?", "acceptedAnswer": {"@type":"Answer","text":"We quote up-front. No hidden surprises."} },
+      { "@type": "Question", "name": "How soon can you attend?", "acceptedAnswer": {"@type":"Answer","text":"Same-day in Leicester. 24/7 emergencies."} },
+      { "@type": "Question", "name": "Are you Gas Safe?", "acceptedAnswer": {"@type":"Answer","text":"Yes — all boiler work by registered engineers."} },
+      { "@type": "Question", "name": "Which areas do you cover?", "acceptedAnswer": {"@type":"Answer","text":"Leicester & Leicestershire."} }
     ]
   }
   </script>
@@ -332,7 +338,7 @@
     </div>
   </footer>
 
-  <!-- Chatbase chatbot -->
+  <!-- Chatbase chatbot (kept) -->
   <script>
     window.embeddedChatbotConfig = {
       chatbotId: "rL8EPf39llgdwMS-JB0j_",
@@ -341,11 +347,11 @@
   </script>
   <script defer src="https://www.chatbase.co/embed.min.js"></script>
 
-  <!-- Calendly popup -->
+  <!-- Calendly popup (kept) -->
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
-  <!-- Floating “Book now” (desktop only) -->
+  <!-- Floating “Book now” (desktop only) (kept) -->
   <script>
   (function(){
     if (window.innerWidth < 768) return; // hide on mobile
@@ -369,7 +375,7 @@
   })();
   </script>
 
-  <!-- Floating WhatsApp button -->
+  <!-- Floating WhatsApp button (kept; now auto-avoids chat bubble) -->
   <script>
   (function(){
     var waNumber = '441161234567';
@@ -386,11 +392,21 @@
       textDecoration: 'none', boxShadow: '0 6px 16px rgba(0,0,0,.15)',
       fontFamily:'system-ui, -apple-system, Segoe UI, Roboto, Arial'
     });
+    function nudgeForChatBubble(){
+      // Look for Chatbase bubble container and bump WhatsApp up if found
+      var bubble = document.querySelector('[id^="chatbase-"], .chatbase-bubble, iframe[src*="chatbase"]');
+      wa.style.bottom = bubble ? '120px' : '90px';
+    }
     if (window.innerWidth >= 380) { document.body.appendChild(wa); }
+    // Try a few times as the chat script loads
+    nudgeForChatBubble();
+    setTimeout(nudgeForChatBubble, 800);
+    setTimeout(nudgeForChatBubble, 1600);
+    window.addEventListener('resize', nudgeForChatBubble);
   })();
   </script>
 
-  <!-- Hook up header + services CTAs to Calendly (with UTM) -->
+  <!-- Hook up header + services CTAs to Calendly (with UTM) (kept) -->
   <script>
   document.addEventListener('click', function (e) {
     if (e.target && e.target.id === 'bookNowNav') {
@@ -408,7 +424,7 @@
   });
   </script>
 
-  <!-- Fade-in observer for mid image -->
+  <!-- Fade-in observer for mid image (kept) -->
   <script>
   document.addEventListener('DOMContentLoaded', function(){
     var el = document.querySelector('.fade-in');
@@ -419,5 +435,8 @@
     obs.observe(el);
   });
   </script>
+
+  <!-- Year stamp -->
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
