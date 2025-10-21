@@ -71,15 +71,21 @@
         <button class="hamburger" aria-expanded="false" aria-controls="nav-menu" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
-        <ul id="nav-menu">
-          <li><a href="services.html">Services</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="btn btn-sm" href="#" id="bookNowNav">Book now</a></li>
-          <li>
-  <a class="btn btn-sm btn-ghost"
-          <li><a class="btn btn-sm" href="tel:+441161234567">Call 0116 123 4567</a></li>
-        </ul>
+     <ul id="nav-menu">
+  <li><a href="services.html">Services</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="contact.html">Contact</a></li>
+
+  <li><a class="btn btn-sm" href="#" id="bookNowNav">Book now</a></li>
+
+  <li>
+    <a class="btn btn-sm btn-ghost"
+       href="https://wa.me/441161234567?text=Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with..."
+       target="_blank" rel="noopener">WhatsApp</a>
+  </li>
+
+  <li><a class="btn btn-sm" href="tel:+441161234567">Call 0116 123 4567</a></li>
+</ul>
       </nav>
     </div>
   </header>
@@ -290,8 +296,19 @@
   }
 })();
 </script>
+<script>
+document.addEventListener('click', function (e) {
+  if (e.target && e.target.id === 'bookNowNav') {
+    e.preventDefault();
+    Calendly.initPopupWidget({
+      url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+    });
+  }
+});
+</script>
 </body>
 </html>
+
 
 
 
