@@ -447,66 +447,102 @@
 
   <!-- Year stamp -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <!-- Mobile nav toggle -->
+  <!-- Mobile nav: robust toggle + layout -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const burger = document.querySelector('.hamburger');
+document.addEventListener('DOMContentLoaded', function () {
+  const header  = document.querySelector('.site-header');
+  const burger  = document.querySelector('.hamburger');
   const navMenu = document.getElementById('nav-menu');
-  if (!burger || !navMenu) return;
 
-  burger.addEventListener('click', function() {
-    const isOpen = burger.classList.toggle('is-active');
-    navMenu.classList.toggle('is-open', isOpen);
-    burger.setAttribute('aria-expanded', isOpen);
+  if (!header || !burger || !navMenu) return;
+
+  // Create/ensure backdrop
+  let overlay = document.getElementById('nav-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'nav-overlay';
+    document.body.appendChild(overlay);
+  }
+
+  function setMenuTop() {
+    const h = header.offsetHeight || 84;
+    // position the menu just under the header
+    navMenu.style.setProperty('--headerH', h + 'px');
+    navMenu.style.top = h + 'px';
+    overlay.style.top = h + 'px';
+  }
+
+  function openMenu() {
+    setMenuTop();
+    burger.classList.add('is-active');
+    navMenu.classList.add('is-open');
+    // Force visibility even if external CSS says otherwise
+    navMenu.style.display = 'flex';
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden'; // stop background scroll
+  }
+
+  function closeMenu() {
+    burger.classList.remove('is-active');
+    navMenu.classList.remove('is-open');
+    navMenu.style.display = 'none';
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', function () {
+    const isOpen = burger.classList.contains('is-active');
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  overlay.addEventListener('click', closeMenu);
+  window.addEventListener('resize', function () {
+    if (burger.classList.contains('is-active')) setMenuTop();
   });
 });
 </script>
 
-<!-- simple inline styles for slide-down menu on mobile -->
-<!-- simple inline styles for slide-down menu on mobile (fixed + scrollable) -->
 <style>
+/* Mobile dropdown menu lives below the fixed header */
 @media (max-width: 900px) {
-  nav ul#nav-menu {
-    display: none;
+  nav ul#nav-menu{
+    position: fixed !important;
+    left: 0; right: 0;
+    top: var(--headerH, 84px);      /* set in JS */
+    padding: 1.25rem;
+    display: none;                  /* JS forces 'flex' when open */
     flex-direction: column;
     gap: 0.75rem;
     background: #0b1220;
-    position: fixed;
-    top: 84px; /* match your header height */
-    left: 0;
-    right: 0;
-    padding: 1.25rem;
     border-top: 1px solid rgba(255,255,255,.08);
     z-index: 9999;
-    height: calc(100vh - 84px);
-    overflow-y: auto; /* scroll if needed */
+    max-height: calc(100vh - var(--headerH, 84px));
+    overflow-y: auto;
   }
-  nav ul#nav-menu.is-open {
-    display: flex;
+  /* backdrop to catch taps */
+  #nav-overlay{
+    position: fixed;
+    left: 0; right: 0;
+    top: var(--headerH, 84px);
+    bottom: 0;
+    background: rgba(0,0,0,.45);
+    display: none;
+    z-index: 9998;
   }
+  #nav-overlay.show{ display:block; }
 
-  /* animated hamburger lines */
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: #fff;
-    margin: 5px 0;
-    transition: all .25s ease;
+  /* hamburger lines + animation */
+  .hamburger span{
+    display:block;width:24px;height:2px;background:#fff;margin:5px 0;transition:all .25s ease;
   }
-  .hamburger.is-active span:nth-child(1) {
-    transform: rotate(45deg) translateY(6px);
-  }
-  .hamburger.is-active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger.is-active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-6px);
-  }
+  .hamburger.is-active span:nth-child(1){ transform: rotate(45deg) translateY(6px); }
+  .hamburger.is-active span:nth-child(2){ opacity: 0; }
+  .hamburger.is-active span:nth-child(3){ transform: rotate(-45deg) translateY(-6px); }
 }
 </style>
 </body>
 </html>
+
 
 
 
