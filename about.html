@@ -3,58 +3,58 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Leicester Plumbing Co</title>
-  <meta name="description" content="Local, family‑run plumbers serving Leicester with honesty, high standards, and rapid response.">
-  <link rel="icon" href="assets/favicon.png">
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>About | Leicester Plumbing Co</title>
+  <meta name="description" content="Learn about Leicester Plumbing Co — trusted local engineers providing emergency plumbing, boilers and bathrooms." />
+  <meta name="theme-color" content="#0ea5e9">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" data-sticky>
     <div class="container row between center">
-      <a href="index.html" class="brand"><img src="assets/logo.svg" alt="" width="36" height="36"> <span>Leicester Plumbing Co</span></a>
+      <a href="index.html" class="brand">
+        <img src="assets/logo.svg" alt="Leicester Plumbing Co" width="36" height="36" />
+        <span>Leicester Plumbing Co</span>
+      </a>
       <nav class="nav" aria-label="Primary">
-        <button class="hamburger" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
         <ul id="nav-menu">
           <li><a href="services.html">Services</a></li>
-          <li><a class="active" href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="btn btn-sm" href="tel:+441162222222">Call 0116 222 2222</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a class="btn btn-sm" href="contact.html">Contact</a></li>
+          <li><a class="btn btn-sm" href="tel:+441161234567">Call 0116 123 4567</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container pad">
+  <main class="container" style="padding:3rem 1rem;">
     <h1>About Leicester Plumbing Co</h1>
-    <p class="lead">We believe in clear pricing, tidy work, and turning up when we say we will.</p>
-    <div class="grid-2">
-      <p>We’re a Leicester‑based team of qualified plumbers and Gas Safe engineers. From emergencies to complete bathroom refits, our focus is doing the job once — and doing it right.</p>
-      <ul class="ticks">
-        <li>Gas Safe Registered</li>
-        <li>Fully insured</li>
-        <li> DBS‑checked engineers</li>
-      </ul>
-    </div>
+    <p>We’re a small team of Leicester engineers providing fast, fair and reliable plumbing and heating services.</p>
+    <ul class="ticks">
+      <li>Gas Safe registered engineers</li>
+      <li>Clear, up-front pricing</li>
+      <li>24/7 emergency callouts</li>
+      <li>Hundreds of happy local customers</li>
+    </ul>
+    <p><a class="btn" href="tel:+441161234567">Call 0116 123 4567</a> <a class="btn btn-ghost" href="contact.html">Get a quote</a></p>
   </main>
 
   <footer class="site-footer">
     <div class="container grid-3">
-      <div><strong>Leicester Plumbing Co</strong><p>Serving Leicester & Leicestershire.</p></div>
-      <nav><ul><li><a href="services.html">Services</a></li><li><a href="about.html" class="active">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
-      <div><a class="btn btn-sm" href="tel:+441162222222">Call 0116 222 2222</a></div>
+      <div><strong>Leicester Plumbing Co</strong><p>Reliable local plumbers covering Leicester & Leicestershire.</p></div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html" aria-current="page">About</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </nav>
+      <div>
+        <a class="btn btn-sm" href="tel:+441161234567">Call 0116 123 4567</a>
+        <p class="tiny">© <span id="year"></span> Leicester Plumbing Co.</p>
+      </div>
     </div>
   </footer>
   <script src="script.js" defer></script>
-<!-- Chatbase chat bubble -->
-<script>
-  window.embeddedChatbotConfig = {
-    chatbotId: "rL8EPf39llgdwMS-JB0j_",  /* your bot ID */
-    domain: "www.chatbase.co"
-  };
-</script>
-<script defer src="https://www.chatbase.co/embed.min.js"></script>
-
 </body>
-
 </html>
