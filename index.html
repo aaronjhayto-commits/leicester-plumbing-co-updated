@@ -447,7 +447,54 @@
 
   <!-- Year stamp -->
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <!-- Mobile nav toggle -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const burger = document.querySelector('.hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  if (!burger || !navMenu) return;
+
+  burger.addEventListener('click', function() {
+    const isOpen = burger.classList.toggle('is-active');
+    navMenu.classList.toggle('is-open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+});
+</script>
+
+<!-- simple inline styles for slide-down menu on mobile -->
+<style>
+@media (max-width: 900px) {
+  nav ul#nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: #0b1220;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  nav ul#nav-menu.is-open {
+    display: flex;
+  }
+  .hamburger.is-active span:nth-child(1) { transform: rotate(45deg) translateY(6px); }
+  .hamburger.is-active span:nth-child(2) { opacity: 0; }
+  .hamburger.is-active span:nth-child(3) { transform: rotate(-45deg) translateY(-6px); }
+  .hamburger span {
+    display:block;
+    width:24px;
+    height:2px;
+    background:#fff;
+    margin:5px 0;
+    transition:all .25s ease;
+  }
+}
+</style>
 </body>
 </html>
+
 
 
