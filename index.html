@@ -535,9 +535,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 <!-- Book-now chooser: Boiler service / Request quote / Emergency call -->
+<!-- Book-now chooser: only for floating bottom-left button -->
 <script>
 (function(){
-  const BOOKING_URL = 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=site&utm_medium=chooser&utm_campaign=boiler_service';
+  const BOOKING_URL = 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=site&utm_medium=fab&utm_campaign=boiler_service';
   const TEL = '+441161234567';
 
   function ensureCalendly(cb){
@@ -552,7 +553,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function openChooser(){
-    // build overlay only once
     let o = document.getElementById('book-chooser');
     if (!o){
       o = document.createElement('div');
@@ -568,22 +568,20 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>`;
       document.body.appendChild(o);
 
-      // close handlers
-      o.addEventListener('click', (e)=>{
+      o.addEventListener('click', e=>{
         if (e.target.hasAttribute('data-close')) o.classList.remove('show');
       });
 
-      // action handlers
-      o.querySelector('[data-action="service"]').addEventListener('click', function(){
+      o.querySelector('[data-action="service"]').addEventListener('click', ()=>{
         ensureCalendly(()=> Calendly.initPopupWidget({ url: BOOKING_URL }));
         o.classList.remove('show');
       });
-      o.querySelector('[data-action="quote"]').addEventListener('click', function(){
+      o.querySelector('[data-action="quote"]').addEventListener('click', ()=>{
         o.classList.remove('show');
         const target = document.getElementById('quote');
         if (target) target.scrollIntoView({ behavior:'smooth', block:'start' });
       });
-      o.querySelector('[data-action="call"]').addEventListener('click', function(){
+      o.querySelector('[data-action="call"]').addEventListener('click', ()=>{
         o.classList.remove('show');
         window.location.href = 'tel:' + TEL;
       });
@@ -591,9 +589,8 @@ document.addEventListener('DOMContentLoaded', function () {
     o.classList.add('show');
   }
 
-  // delegate clicks from all Book buttons we care about
-  document.addEventListener('click', function(e){
-    const el = e.target.closest('#bookNowNav, #bookNowServices, #bookFab');
+  document.addEventListener('click', e=>{
+    const el = e.target.closest('#bookFab'); // ONLY the floating button
     if (!el) return;
     e.preventDefault();
     openChooser();
@@ -602,34 +599,32 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <style>
-/* chooser styles */
-#book-chooser{ position:fixed; inset:0; display:none; z-index:100000; }
-#book-chooser.show{ display:block; }
-#book-chooser .bc-backdrop{ position:absolute; inset:0; background:rgba(0,0,0,.5); }
+/* Simple modal styling */
+#book-chooser{position:fixed;inset:0;display:none;z-index:100000;}
+#book-chooser.show{display:block;}
+#book-chooser .bc-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);}
 #book-chooser .bc-panel{
-  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
-  width:min(520px,92vw); background:#0b1220; color:#fff;
-  border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:18px;
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(520px,92vw);background:#0b1220;color:#fff;
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;
   box-shadow:0 20px 60px rgba(0,0,0,.45);
 }
-#book-chooser h3{ margin:0 0 12px; font-size:1.1rem }
+#book-chooser h3{margin:0 0 12px;font-size:1.1rem}
 #book-chooser .bc-btn{
-  width:100%; text-align:left; padding:12px 14px; margin:8px 0;
-  border-radius:12px; border:1px solid #1b2a3c; background:#0d1526; color:#fff; font-weight:700;
+  width:100%;text-align:left;padding:12px 14px;margin:8px 0;
+  border-radius:12px;border:1px solid #1b2a3c;background:#0d1526;color:#fff;font-weight:700;
 }
-#book-chooser .bc-secondary{ background:#0b1323; }
-#book-chooser .bc-quiet{ background:#0a1120; border-style:dashed; }
-#book-chooser .bc-btn:focus{ outline:none; box-shadow:0 0 0 3px rgba(16,165,233,.35); }
+#book-chooser .bc-secondary{background:#0b1323;}
+#book-chooser .bc-quiet{background:#0a1120;border-style:dashed;}
+#book-chooser .bc-btn:focus{outline:none;box-shadow:0 0 0 3px rgba(16,165,233,.35);}
 #book-chooser .bc-close{
-  position:absolute; top:6px; right:10px; background:transparent; border:0; color:#bcd; font-size:28px; line-height:1; cursor:pointer;
+  position:absolute;top:6px;right:10px;background:transparent;border:0;color:#bcd;font-size:28px;line-height:1;cursor:pointer;
 }
-@media (max-width: 480px){
-  #book-chooser .bc-panel{ width:94vw; padding:16px }
-  #book-chooser .bc-btn{ padding:12px }
-}
+@media (max-width:480px){#book-chooser .bc-panel{width:94vw;padding:16px}}
 </style>
 </body>
 </html>
+
 
 
 
