@@ -6,25 +6,36 @@
   <title>Leicester Plumbing Co — 24/7 Plumbers & Boiler Experts</title>
   <meta name="description" content="Market-leading plumbers in Leicester. 24/7 emergencies, boiler installs and servicing, leaks fixed fast, bathrooms, and heating. Fixed fair pricing." />
   <meta name="theme-color" content="#0ea5e9">
+  <!-- DEMO: prevent indexing -->
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Canonical (optional, fine to leave in for a stable demo URL) -->
+  <link rel="canonical" href="https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/">
 
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="assets/hero.jpg?v=8">
 
   <!-- Styles (cache-busted) -->
   <link rel="stylesheet" href="styles.css?v=10" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Small overrides -->
+  <!-- Small overrides + image fade-in -->
   <style>
     .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
     /* Tighten Services spacing */
     .cards.container{ padding-top:.75rem !important; padding-bottom:.75rem !important; margin:0 !important; }
     .cards .section-head{ margin-bottom:.5rem !important; }
     .cards .grid-3{ gap:12px !important; margin:0 !important; }
+
+    /* Mid-page image fade-in */
+    .fade-in{opacity:0; transform:translateY(8px); transition:opacity .6s ease, transform .6s ease;}
+    .fade-in.is-visible{opacity:1; transform:none;}
   </style>
 
-  <!-- JSON-LD for SEO -->
+  <!-- Business Schema -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -60,6 +71,36 @@
     }
   }
   </script>
+
+  <!-- FAQPage Schema (rich results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do you charge a callout fee?",
+        "acceptedAnswer": {"@type":"Answer","text":"We quote up-front. No hidden surprises."}
+      },
+      {
+        "@type": "Question",
+        "name": "How soon can you attend?",
+        "acceptedAnswer": {"@type":"Answer","text":"Same-day in Leicester. 24/7 emergencies."}
+      },
+      {
+        "@type": "Question",
+        "name": "Are you Gas Safe?",
+        "acceptedAnswer": {"@type":"Answer","text":"Yes — all boiler work by registered engineers."}
+      },
+      {
+        "@type": "Question",
+        "name": "Which areas do you cover?",
+        "acceptedAnswer": {"@type":"Answer","text":"Leicester & Leicestershire."}
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -84,7 +125,7 @@
           <li>
             <a class="btn btn-sm btn-ghost"
                href="https://wa.me/441161234567?text=Hi%20Leicester%20Plumbing%20Co%2C%20I%20need%20help%20with..."
-               target="_blank" rel="noopener">WhatsApp</a>
+               target="_blank" rel="noopener" aria-label="Open WhatsApp chat">WhatsApp</a>
           </li>
           <li><a class="btn btn-sm" href="tel:+441161234567">Call 0116 123 4567</a></li>
         </ul>
@@ -113,10 +154,10 @@
 
     <!-- TRUST LOGOS -->
     <section class="logos container" aria-label="Trusted by">
-      <img src="assets/gassafe.png?v=8" alt="Gas Safe" />
-      <img src="assets/checkatrade.png?v=8" alt="Checkatrade" />
-      <img src="assets/trustpilot.svg?v=8" alt="Trustpilot" />
-      <img src="assets/which.svg?v=8" alt="Which?" />
+      <img loading="lazy" width="128" height="48" src="assets/gassafe.png?v=8" alt="Gas Safe" />
+      <img loading="lazy" width="220" height="48" src="assets/checkatrade.png?v=8" alt="Checkatrade" />
+      <img loading="lazy" width="220" height="48" src="assets/trustpilot.svg?v=8" alt="Trustpilot" />
+      <img loading="lazy" width="140" height="48" src="assets/which.svg?v=8" alt="Which?" />
     </section>
 
     <!-- SERVICES -->
@@ -126,7 +167,7 @@
         <p style="margin:.35rem 0 0;">From burst pipes to premium boilers — we’ve got you covered.</p>
       </header>
 
-      <!-- THE THREE SERVICE CARDS (force visible to avoid animation hiding) -->
+      <!-- THE THREE SERVICE CARDS (forced visible) -->
       <div class="grid-3" style="gap:12px; margin:0;">
         <article class="card" data-animate="fade-up" style="padding:1rem; opacity:1; transform:none;">
           <h3>Emergency Plumber</h3>
@@ -174,10 +215,11 @@
       </p>
     </section>
 
-    <!-- IMAGE BREAK (tight, neat) -->
+    <!-- IMAGE BREAK (tight, neat + fade-in) -->
     <section class="image-break" style="margin:1rem 0 .75rem;">
       <div class="container" style="overflow:hidden; border-radius:12px;">
         <img
+          class="fade-in"
           src="assets/service-maintenance-worker-repairing.jpg"
           alt="Professional plumber fixing sink under counter"
           loading="lazy" decoding="async"
@@ -249,12 +291,18 @@
           </ul>
         </div>
 
-        <form class="card form" action="https://formspree.io/f/xqayjvwo" method="POST">
+        <form class="card form" action="https://formspree.io/f/xqayjvwo" method="POST" novalidate>
+          <!-- Page marker -->
           <input type="hidden" name="page" value="Home">
+          <!-- Honeypot anti-spam -->
+          <input type="text" name="company" autocomplete="off" tabindex="-1"
+                 style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
+
           <label><span>Name</span><input name="name" required></label>
           <label><span>Email</span><input type="email" name="email" required></label>
           <label><span>Phone</span><input name="phone" required></label>
           <label><span>How can we help?</span><textarea name="message" rows="5" required></textarea></label>
+
           <button class="btn btn-lg" type="submit">Request quote</button>
           <p class="form-foot">Or call us now: <a href="tel:+441161234567">0116 123 4567</a></p>
         </form>
@@ -306,7 +354,7 @@
     btn.textContent = 'Book now';
     btn.onclick = function(){
       Calendly.initPopupWidget({
-        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=demo&utm_medium=site&utm_campaign=floating_cta'
       });
       return false;
     };
@@ -329,7 +377,7 @@
     var wa = document.createElement('a');
     wa.href = 'https://wa.me/' + waNumber + '?text=' + prefill;
     wa.target = '_blank'; wa.rel = 'noopener';
-    wa.setAttribute('aria-label','Chat on WhatsApp');
+    wa.setAttribute('aria-label','Open WhatsApp chat');
     wa.textContent = 'WhatsApp';
     Object.assign(wa.style, {
       position: 'fixed', right: '18px', bottom: '90px',
@@ -342,21 +390,33 @@
   })();
   </script>
 
-  <!-- Hook up header + services CTAs to Calendly -->
+  <!-- Hook up header + services CTAs to Calendly (with UTM) -->
   <script>
   document.addEventListener('click', function (e) {
     if (e.target && e.target.id === 'bookNowNav') {
       e.preventDefault();
       Calendly.initPopupWidget({
-        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=demo&utm_medium=site&utm_campaign=header_cta'
       });
     }
     if (e.target && e.target.id === 'bookNowServices') {
       e.preventDefault();
       Calendly.initPopupWidget({
-        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1'
+        url: 'https://calendly.com/aaronjhayto/book-a-plumber-visit?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=demo&utm_medium=site&utm_campaign=services_cta'
       });
     }
+  });
+  </script>
+
+  <!-- Fade-in observer for mid image -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    var el = document.querySelector('.fade-in');
+    if(!el) return;
+    let obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ el.classList.add('is-visible'); obs.disconnect(); }});
+    }, {threshold:.2});
+    obs.observe(el);
   });
   </script>
 </body>
