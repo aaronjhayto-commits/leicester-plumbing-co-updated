@@ -33,23 +33,28 @@
   <meta name="twitter:description" content="Emergency plumbers in Leicester. Boilers, leaks, bathrooms, heating. Fixed, fair pricing.">
   <meta name="twitter:image" content="https://aaronjhayto-commits.github.io/leicester-plumbing-co-updated/assets/og-cover.jpg">
 
-  <!-- Small overrides + image fade-in -->
-  <style>
-    <style>
-/* Keep the Contact nav button neutral on every page */
-.site-header .nav a[href$="contact.html"].btn,
-.site-header .nav a[href$="contact.html"].btn.btn-sm,
-.site-header .nav a[href$="contact.html"].btn:link,
-.site-header .nav a[href$="contact.html"].btn:visited,
-.site-header .nav a[href$="contact.html"].btn.active {
-  background: #0b1220 !important;   /* match header */
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,.15) !important;
-}
-.site-header .nav a[href$="contact.html"].btn:hover {
-  background: #0ea5e9 !important;
-  color: #fff !important;
-}
+ <!-- Small overrides + image fade-in -->
+<style>
+  .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
+  /* Tighten Services spacing */
+  .cards.container{ padding-top:.75rem !important; padding-bottom:.75rem !important; margin:0 !important; }
+  .cards .section-head{ margin-bottom:.5rem !important; }
+  .cards .grid-3{ gap:12px !important; margin:0 !important; }
+
+  /* Mid-page image fade-in */
+  .fade-in{opacity:0; transform:translateY(8px); transition:opacity .6s ease, transform .6s ease;}
+  .fade-in.is-visible{opacity:1; transform:none;}
+
+  /* Header size/cta/icon bump */
+  .site-header .container.row { min-height: 84px; }
+  .site-header .brand img { width: 44px; height: 44px; }
+  .site-header .brand span { font-size: 1.08rem; font-weight: 700; }
+  .site-header .nav .btn.btn-sm { padding: 10px 14px; }
+  .site-header .nav .btn.btn-sm svg { width: 20px; height: 20px; }
+  @media (min-width: 900px){
+    .site-header .container.row { min-height: 92px; }
+    .site-header .brand span { font-size: 1.12rem; }
+  }
 </style>
     .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
     /* Tighten Services spacing */
@@ -678,6 +683,7 @@ document.addEventListener('DOMContentLoaded', function () {
 </style>
 </body>
 </html>
+
 
 
 
