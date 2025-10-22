@@ -17,7 +17,7 @@
   <link rel="preload" as="image" href="assets/hero.jpg?v=8">
 
   <!-- Styles (cache-busted) -->
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -35,13 +35,16 @@
   <!-- Small overrides + image fade-in (CLEAN + CLOSED) -->
   <style>
     .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
+
     /* Tighten Services spacing */
     .cards.container{ padding-top:.75rem !important; padding-bottom:.75rem !important; margin:0 !important; }
     .cards .section-head{ margin-bottom:.5rem !important; }
     .cards .grid-3{ gap:12px !important; margin:0 !important; }
+
     /* Mid-page image fade-in */
     .fade-in{opacity:0; transform:translateY(8px); transition:opacity .6s ease, transform .6s ease;}
     .fade-in.is-visible{opacity:1; transform:none;}
+
     /* Header size/cta/icon bump */
     .site-header .container.row { min-height: 84px; }
     .site-header .brand img { width: 44px; height: 44px; }
@@ -52,20 +55,18 @@
       .site-header .container.row { min-height: 92px; }
       .site-header .brand span { font-size: 1.12rem; }
     }
-    /* Force Contact button to stay dark across all pages */
+
+    /* Keep Contact button dark in header on every page */
     .site-header .nav a[href*="contact.html"].btn,
-    .site-header .nav a[href*="contact.html"].btn-sm,
-    header.site-header nav ul li a[href*="contact.html"].btn,
-    header.site-header nav ul li a[href*="contact.html"].btn-sm {
-      background:#0b1220 !important;   /* match header */
+    .site-header .nav a[href*="contact.html"].btn-sm {
+      background:#0b1220 !important;  /* same as header */
       color:#fff !important;
       border:1px solid rgba(255,255,255,.15) !important;
       box-shadow:none !important;
     }
     .site-header .nav a[href*="contact.html"].btn:hover,
     .site-header .nav a[href*="contact.html"].btn-sm:hover {
-      background:#0ea5e9 !important;
-      color:#fff !important;
+      background:#0ea5e9 !important; color:#fff !important;
     }
   </style>
 
