@@ -562,6 +562,80 @@
   });
 })();
 </script>
+  <!-- Compact chat teaser bubble (above the Chatbase launcher) -->
+<script>
+(function () {
+  // ── Settings ─────────────────────────────────────────────
+  const SIDE = 'right';      // change to 'left' if you move the launcher
+  const BOTTOM = 110;        // px above the launcher bubble
+  const SHOW_DELAY = 1200;   // ms after page load
+  const HIDE_AFTER = 0;      // ms auto-hide (0 = don’t auto-hide)
+  const KEY = 'lpc_teaser_seen_v1'; // session key so it shows once per visit
+  const PHONE = '+441161234567';
+  // ─────────────────────────────────────────────────────────
+
+  // Don't re-show in the same tab session
+  if (sessionStorage.getItem(KEY)) return;
+
+  // Styles
+  const css = document.createElement('style');
+  css.textContent = `
+    #chat-teaser{
+      position:fixed; ${SIDE}:18px; bottom:${BOTTOM}px;
+      width:max(240px, min(340px, calc(100vw - 64px)));
+      background:#0b1220; color:#fff;
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:12px; padding:12px 14px 12px 40px;
+      box-shadow:0 12px 40px rgba(0,0,0,.4);
+      z-index:10002; opacity:0; transform:translateY(6px);
+      transition:opacity .25s, transform .25s;
+      font: 600 14px/1.35 system-ui,-apple-system,Segoe UI,Roboto,Arial;
+    }
+    #chat-teaser.show{opacity:1; transform:none;}
+    #chat-teaser .close{
+      position:absolute; top:6px; right:8px; border:0; background:transparent;
+      color:#cbd5e1; font-size:20px; line-height:1; cursor:pointer;
+    }
+    #chat-teaser a{color:#a5e3ff; text-decoration:none;}
+    #chat-teaser .emoji{position:absolute; left:12px; top:12px;}
+    #chat-teaser:after{
+      content:""; position:absolute; ${SIDE}:28px; bottom:-8px;
+      width:16px; height:16px; background:#0b1220;
+      border-right:1px solid rgba(255,255,255,.1);
+      border-bottom:1px solid rgba(255,255,255,.1);
+      transform: rotate(45deg);
+    }
+    @media (max-width:480px){ #chat-teaser{ bottom:96px; } }
+  `;
+  document.head.appendChild(css);
+
+  function showTeaser(){
+    const box = document.createElement('div');
+    box.id = 'chat-teaser';
+    box.innerHTML = `
+      <span class="emoji">💬</span>
+      <button class="close" aria-label="Close">×</button>
+      <p><strong>Hi! I’m the Leicester Plumbing Co assistant</strong></p>
+      <p>Need a quick quote or emergency help?<br>
+         Ask me anything — or call <a href="tel:${PHONE}">0116 123 4567</a>.
+      </p>
+    `;
+    document.body.appendChild(box);
+    requestAnimationFrame(()=> box.classList.add('show'));
+
+    // Close actions
+    const close = ()=> box.remove();
+    box.querySelector('.close').addEventListener('click', close);
+    box.addEventListener('click', close); // tap anywhere to dismiss
+
+    if (HIDE_AFTER > 0) setTimeout(close, HIDE_AFTER);
+    sessionStorage.setItem(KEY, '1'); // show once per tab session
+  }
+
+  window.addEventListener('load', ()=> setTimeout(showTeaser, SHOW_DELAY));
+})();
+</script>
 </body>
 </html>
+
 
