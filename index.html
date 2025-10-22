@@ -505,5 +505,63 @@
     });
   })();
   </script>
+<!-- Force Chatbase window to be a compact box above the launcher -->
+<script>
+(function () {
+  // Tweak these if you want a different size/offset
+  var BOX_WIDTH  = 360;   // px
+  var BOX_HEIGHT = 520;   // px
+  var OFFSET_R   = 18;    // right gap (px)
+  var OFFSET_B   = 90;    // bottom gap (px) – sits above your bottom-right buttons
+
+  function styleChatbase() {
+    // Find Chatbase iframes (the window one is usually full viewport)
+    var iframes = Array.from(document.querySelectorAll('iframe'))
+      .filter(function (f) {
+        var src = (f.getAttribute('src') || '');
+        return src.includes('chatbase.co') || src.includes('chatbase.com');
+      });
+
+    iframes.forEach(function (f) {
+      // Skip the small circular launcher iframes (they’re tiny)
+      var rect = f.getBoundingClientRect();
+      var maybeLauncher = rect.width && rect.width < 120 && rect.height && rect.height < 120;
+      if (maybeLauncher) return;
+
+      // Force the chat WINDOW to be a floating box above the launcher
+      f.style.setProperty('position', 'fixed', 'important');
+      f.style.setProperty('right', OFFSET_R + 'px', 'important');
+      f.style.setProperty('bottom', OFFSET_B + 'px', 'important');
+      f.style.setProperty('left', 'auto', 'important');
+      f.style.setProperty('top', 'auto', 'important');
+      f.style.setProperty('width', BOX_WIDTH + 'px', 'important');
+      f.style.setProperty('height', BOX_HEIGHT + 'px', 'important');
+      f.style.setProperty('maxWidth', 'calc(100vw - 32px)', 'important');
+      f.style.setProperty('maxHeight', '80vh', 'important');
+      f.style.setProperty('borderRadius', '14px', 'important');
+      f.style.setProperty('overflow', 'hidden', 'important');
+      f.style.setProperty('boxShadow', '0 20px 60px rgba(0,0,0,.4)', 'important');
+      f.style.setProperty('zIndex', '10001', 'important');
+      f.style.setProperty('background', 'transparent', 'important');
+    });
+  }
+
+  // Run after page load (Chatbase injects a bit later)
+  window.addEventListener('load', function () {
+    // Try a few times in case the iframe appears late
+    var tries = 0;
+    var t = setInterval(function () {
+      tries++;
+      styleChatbase();
+      if (tries > 15) clearInterval(t); // ~1.5s total
+    }, 100);
+
+    // Also watch for DOM changes (Chatbase toggles the window dynamically)
+    var mo = new MutationObserver(styleChatbase);
+    mo.observe(document.body, { childList: true, subtree: true });
+  });
+})();
+</script>
 </body>
 </html>
+
