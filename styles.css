@@ -326,6 +326,23 @@ a:hover{opacity:.9}
   background:#0ea5e9 !important;
   color:#fff !important;
 }
+/* Force the Contact button/link in the header to stay dark on every page */
+.site-header .nav a[href$="contact.html"],
+.site-header .nav a[href$="/contact.html"],
+.site-header .nav a[href*="contact.html"] {
+  background: #0b1220 !important;            /* same as header colour */
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.15) !important;
+  box-shadow: none !important;
+}
+
+/* hover/active states */
+.site-header .nav a[href*="contact.html"]:hover,
+.site-header .nav a[href*="contact.html"].active,
+.site-header .nav a[href*="contact.html"][aria-current] {
+  background: #0ea5e9 !important;
+  color: #fff !important;
+}
 
 
 
