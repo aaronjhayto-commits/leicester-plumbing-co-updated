@@ -17,7 +17,7 @@
   <link rel="preload" as="image" href="assets/hero.jpg?v=8">
 
   <!-- Styles (cache-busted) -->
-  <link rel="stylesheet" href="styles.css?v=15" />
+  <link rel="stylesheet" href="styles.css?v=12" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -35,17 +35,13 @@
   <!-- Small overrides + image fade-in (CLEAN + CLOSED) -->
   <style>
     .logos img { filter:none !important; opacity:1 !important; mix-blend-mode:normal !important; }
-
-    /* Tighten Services spacing */
     .cards.container{ padding-top:.75rem !important; padding-bottom:.75rem !important; margin:0 !important; }
     .cards .section-head{ margin-bottom:.5rem !important; }
     .cards .grid-3{ gap:12px !important; margin:0 !important; }
 
-    /* Mid-page image fade-in */
     .fade-in{opacity:0; transform:translateY(8px); transition:opacity .6s ease, transform .6s ease;}
     .fade-in.is-visible{opacity:1; transform:none;}
 
-    /* Header size/cta/icon bump */
     .site-header .container.row { min-height: 84px; }
     .site-header .brand img { width: 44px; height: 44px; }
     .site-header .brand span { font-size: 1.08rem; font-weight: 700; }
@@ -55,6 +51,41 @@
       .site-header .container.row { min-height: 92px; }
       .site-header .brand span { font-size: 1.12rem; }
     }
+
+    /* Contact should look like the other text links (not blue pill) */
+    header.site-header nav ul li a[href*="contact.html"]{
+      background: transparent !important;
+      color: #e5e7eb !important;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
+    header.site-header nav ul li a[href*="contact.html"]:hover{
+      background: rgba(255,255,255,.06) !important;
+      color:#fff !important;
+    }
+
+    /* Book chooser modal */
+    #book-chooser{position:fixed;inset:0;display:none;z-index:100000;}
+    #book-chooser.show{display:block;}
+    #book-chooser .bc-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);}
+    #book-chooser .bc-panel{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+      width:min(520px,92vw);background:#0b1220;color:#fff;
+      border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+    }
+    #book-chooser h3{margin:0 0 12px;font-size:1.1rem}
+    #book-chooser .bc-btn{
+      width:100%;text-align:left;padding:12px 14px;margin:8px 0;
+      border-radius:12px;border:1px solid #1b2a3c;background:#0d1526;color:#fff;font-weight:700;
+    }
+    #book-chooser .bc-secondary{background:#0b1323;}
+    #book-chooser .bc-quiet{background:#0a1120;border-style:dashed;}
+    #book-chooser .bc-btn:focus{outline:none;box-shadow:0 0 0 3px rgba(16,165,233,.35);}
+    #book-chooser .bc-close{position:absolute;top:6px;right:10px;background:transparent;border:0;color:#bcd;font-size:28px;line-height:1;cursor:pointer;}
+    @media (max-width:480px){#book-chooser .bc-panel{width:94vw;padding:16px}}
+  </style>
 
   <!-- Business Schema -->
   <script type="application/ld+json">
@@ -281,7 +312,6 @@
 
         <form class="card form" action="https://formspree.io/f/xqayjvwo" method="POST" novalidate>
           <input type="hidden" name="page" value="Home">
-          <!-- Honeypot -->
           <input type="text" name="company" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
           <label><span>Name</span><input name="name" required></label>
           <label><span>Email</span><input type="email" name="email" required></label>
@@ -430,7 +460,7 @@
   });
   </script>
 
-  <!-- Book-now chooser: Boiler service / Request quote / Emergency call -->
+  <!-- Book-now chooser (all Book buttons) -->
   <script>
   (function(){
     const BOOKING_URL = 'https://calendly.com/aaronjhayto/boiler-service?hide_gdpr_banner=1&hide_landing_page_details=1&utm_source=website&utm_medium=chooser&utm_campaign=boiler_service';
@@ -475,31 +505,5 @@
     });
   })();
   </script>
-
-  <!-- Chooser styles (single, clean) -->
-  <style>
-    #book-chooser{position:fixed;inset:0;display:none;z-index:100000;}
-    #book-chooser.show{display:block;}
-    #book-chooser .bc-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);}
-    #book-chooser .bc-panel{
-      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
-      width:min(520px,92vw);background:#0b1220;color:#fff;
-      border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;
-      box-shadow:0 20px 60px rgba(0,0,0,.45);
-    }
-    #book-chooser h3{margin:0 0 12px;font-size:1.1rem}
-    #book-chooser .bc-btn{
-      width:100%;text-align:left;padding:12px 14px;margin:8px 0;
-      border-radius:12px;border:1px solid #1b2a3c;background:#0d1526;color:#fff;font-weight:700;
-    }
-    #book-chooser .bc-secondary{background:#0b1323;}
-    #book-chooser .bc-quiet{background:#0a1120;border-style:dashed;}
-    #book-chooser .bc-btn:focus{outline:none;box-shadow:0 0 0 3px rgba(16,165,233,.35);}
-    #book-chooser .bc-close{position:absolute;top:6px;right:10px;background:transparent;border:0;color:#bcd;font-size:28px;line-height:1;cursor:pointer;}
-    @media (max-width:480px){#book-chooser .bc-panel{width:94vw;padding:16px}}
-  </style>
 </body>
 </html>
-
-
-
