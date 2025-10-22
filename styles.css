@@ -343,6 +343,21 @@ a:hover{opacity:.9}
   background: #0ea5e9 !important;
   color: #fff !important;
 }
+/* Make Contact look like the other header links (not a button) */
+.site-header .nav a[href*="contact.html"] {
+  background: transparent !important;
+  color: inherit !important;              /* same color as the other links */
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 .5rem !important;            /* match typical nav link padding */
+}
+
+/* Optional: match hover of other links (remove if your base hover is fine) */
+.site-header .nav a[href*="contact.html"]:hover {
+  background: transparent !important;
+  color: #e6eef8 !important;              /* or whatever your hover color is */
+}
 
 
 
