@@ -635,7 +635,34 @@
   window.addEventListener('load', ()=> setTimeout(showTeaser, SHOW_DELAY));
 })();
 </script>
+<script>
+/* Remove any previous full-width chat banner that contains our intro text */
+(function(){
+  const PHRASE = /hi!\s*i[’']m the leicester plumbing co assistant/i;
+  // Give the page a moment in case the old script appends late
+  function nukeOldBanner(){
+    // Find any element (except our compact box) that contains the phrase
+    const all = Array.from(document.body.querySelectorAll('*'))
+      .filter(el => el.id !== 'chat-teaser' && el.textContent && PHRASE.test(el.textContent));
+    all.forEach(el => {
+      // Remove the closest fixed-position ancestor (which will be the banner container)
+      let n = el;
+      while (n && n !== document.body) {
+        const cs = getComputedStyle(n);
+        if (cs.position === 'fixed') { n.remove(); return; }
+        n = n.parentElement;
+      }
+      // Fallback: just hide the element we found
+      el.style.display = 'none';
+    });
+  }
+  // Run now and again after a short delay in case the old script injects late
+  nukeOldBanner();
+  setTimeout(nukeOldBanner, 1000);
+})();
+</script>
 </body>
 </html>
+
 
 
